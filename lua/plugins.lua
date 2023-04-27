@@ -35,7 +35,12 @@ return require('packer').startup(function()
     use 'Yggdroot/indentLine'
     use 'jiangmiao/auto-pairs'
     use 'numToStr/Comment.nvim'
-    use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+    use({
+          "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+          config = function()
+            require("lsp_lines").setup()
+          end,
+        })
     use 'akinsho/toggleterm.nvim'
     use 'preservim/tagbar'
     use 'folke/trouble.nvim'

@@ -19,7 +19,7 @@ map('n', '<S-Tab>', '<C-w><C-w><CR>', default_opts)
 -- Открыть Ranger
 map('n', '<C-o>', ':GFiles<CR>', default_opts)
 map('n', '<C-p>', ':Files<CR>', default_opts)
-vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 map('', '<C-t>', ':ToggleTerm<CR>', default_opts)
 -- Настройка toggleterm
 map('t', '<esc>', [[<C-\><C-n>]], default_opts)
