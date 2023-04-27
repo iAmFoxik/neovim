@@ -72,13 +72,24 @@ vim.diagnostic.config({
         prefix = '',
     },
 })
+
+vim.cmd([[
+set signcolumn=yes
+]])
+
 ------------------------
 -- Настройка Trouble
 ------------------------
 local trouble = require("trouble")
 trouble.setup({
+    signs = {
+        error = "",
+        warning = "",
+        hint = "",
+        information = "",
+        other = "﫠"
+    },
 })
-
 
 -- Completion Plugin Setup
 local cmp = require'cmp'
@@ -90,8 +101,8 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<C-k>'] = cmp.mapping.select_prev_item(),
-    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
     -- Add tab support
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
     ['<Tab>'] = cmp.mapping.select_next_item(),

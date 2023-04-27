@@ -46,8 +46,6 @@ return require('packer').startup(function()
     use 'folke/trouble.nvim'
     use 'nvim-tree/nvim-web-devicons'
     use 'fedepujol/move.nvim'
-    -- use 'lukas-reineke/indent-blankline.nvim'
-
 end)
 
 
