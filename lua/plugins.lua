@@ -46,6 +46,10 @@ return require('packer').startup(function()
     use 'folke/trouble.nvim'
     use 'nvim-tree/nvim-web-devicons'
     use 'fedepujol/move.nvim'
+    use 'mtshiba/pylyzer'
+    use 'microsoft/pyright'
+    use 'python-lsp/python-lsp-ruff'
+    use 'mrjones2014/smart-splits.nvim'
 end)
 
 
