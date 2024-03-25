@@ -27,6 +27,9 @@ opt.tabstop = 4
 -- Подстраивать новые строки под предыдущий отступ
 opt.smartindent = true
 
+-- Эта опция гарантирует, что для отступов строк будут использоваться пробелы, даже когда вы нажимаете клавишу «Tab».
+opt.expandtab = true
+
 --[[ Настройка панелей ]]--
 -- Вертикальные сплиты становятся справа
 -- По умолчанию панели в Neovim ставятся в зависимости от расположения текущей панели. Данная настройка поможет нам держать панели в порядке
@@ -43,7 +46,7 @@ opt.clipboard = 'unnamedplus'
 opt.fixeol = false
 
 -- Автодополнение (встроенное в Neovim)
-opt.completeopt = 'menuone,noselect'
+opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
 -- Не закрывает буффер при переходе
 opt.hidden = true
@@ -54,4 +57,24 @@ opt.number = true
 -- Сделать строки относительными
 opt.relativenumber = true
 
+-- Разделитель на 80 строк
+opt.colorcolumn = '80'
 
+-- Курсор в центре экрана
+opt.so = 999
+
+-- Ширина нумерации
+opt.numberwidth = 2
+
+-- Настройка пробела в качестве leader кнопки
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+g.mapleader = ' '
+
+-- Настройка ranger
+g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+
+-- Установка цвета
+vim.cmd("colorscheme github_light")
+
+-- Выход без сохранения
+vim.api.nvim_create_user_command('Q', 'q!', {})

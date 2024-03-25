@@ -28,4 +28,7 @@ require('keys')
 if vim.g.vscode then
 
     vim.cmd [[source $HOME/.config/nvim/vscode/settings.vim]]
+else
+-- Настройка модулей
+	require('configs')
 end
