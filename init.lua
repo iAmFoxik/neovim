@@ -31,4 +31,6 @@ if vim.g.vscode then
 else
 -- Настройка модулей
 	require('configs')
+
+    require('newpaper').setup()
 end
