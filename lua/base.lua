@@ -68,13 +68,11 @@ opt.numberwidth = 2
 
 -- Настройка пробела в качестве leader кнопки
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-g.mapleader = ' '
+g.mapleader = ','
 
 -- Настройка ranger
 g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
--- Установка цвета
-vim.cmd("colorscheme github_light")
 
 -- Выход без сохранения
 vim.api.nvim_create_user_command('Q', 'q!', {})

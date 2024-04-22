@@ -1,23 +1,47 @@
-require('alias')
+local opts = {noremap = true}
 
-im('jk', '<escape>') -- Аналог выхода из режима ввода
-im('kj', '<escape>') -- Аналог выхода из режима ввода
+-- Telesearch
+vim.keymap.set('n', '<space>o', '<Cmd>lua MiniFiles.open()<CR>', opts)
 
--- Tabs
-nm('<Tab>,', '<Cmd>BufferPrevious<CR>')
-nm('<Tab>.', '<Cmd>BufferNext<CR>')
-nm('<Tab>w', '<Cmd>BufferClose<CR>')
-nm('<Tab>1', '<Cmd>BufferGoto 1<CR>')
-nm('<Tab>2', '<Cmd>BufferGoto 2<CR>')
-nm('<Tab>3', '<Cmd>BufferGoto 3<CR>')
-nm('<Tab>4', '<Cmd>BufferGoto 4<CR>')
-nm('<Tab>5', '<Cmd>BufferGoto 5<CR>')
-nm('<Tab>6', '<Cmd>BufferGoto 6<CR>')
-nm('<Tab>7', '<Cmd>BufferGoto 7<CR>')
-nm('<Tab>8', '<Cmd>BufferGoto 8<CR>')
-nm('<Tab>9', '<Cmd>BufferGoto 9<CR>')
-nm('<Tab>0', '<Cmd>BufferLast<CR>')
+-- Crates.nvim
+local crates = require('crates')
+vim.keymap.set('n', '<leader>cf', crates.show_features_popup, opts)
+
+-- Vim diagnostic
+vim.diagnostic.config({
+  virtual_text = false,
+})
+local warn = { min=vim.diagnostic.severity.WARN }
+
+vim.keymap.set('n', '[w', function ()
+    vim.diagnostic.goto_prev({ severity=warn })
+end, opts)
+
+vim.keymap.set('n', ']w', function ()
+    vim.diagnostic.goto_next({ severity=warn })
+end, opts)
+
+local error = { min=vim.diagnostic.severity.ERROR }
+vim.keymap.set('n', '[e', function ()
+    vim.diagnostic.goto_prev({ severity=error })
+end, opts)
+vim.keymap.set('n', ']e', function ()
+    vim.diagnostic.goto_next({ severity=error })
+end, opts)
+
+
+-- Windows.nvim
+local function cmd(command)
+   return table.concat({ '<Cmd>', command, '<CR>' })
+end
+vim.keymap.set('n', '<space>wv', cmd 'WindowsMaximizeVertically')
+vim.keymap.set('n', '<space>wh', cmd 'WindowsMaximizeHorizontally')
+vim.keymap.set('n', '<space>ww', cmd 'WintabsClose')
+vim.keymap.set('n', '<space>we', cmd 'WintabsNext')
+vim.keymap.set('n', '<space>wq', cmd 'WintabsPrevious')
+
 
 -- 
-nm(',,', '<Cmd>nohlsearch<CR>')
-nm('<C-o>', '<Cmd>Files<CR>')
+vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
+
+

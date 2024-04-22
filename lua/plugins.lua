@@ -5,13 +5,9 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'numToStr/Comment.nvim'
 	use "lukas-reineke/indent-blankline.nvim"
-	use 'romgrk/barbar.nvim'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'lewis6991/gitsigns.nvim'
-	use 'francoiscabrol/ranger.vim'
 	use 'rbgrouleff/bclose.vim'
-	use 'rafi/awesome-vim-colorschemes'
-	use 'projekt0n/github-nvim-theme'
 	use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
@@ -20,8 +16,9 @@ return require('packer').startup(function(use)
 			vim.g.rustfmt_autosave = 1
 		end
 	})
-	use 'nvim-lua/plenary.nvim'
-	use 'saecki/crates.nvim'
+    use "yorik1984/newpaper.nvim"
+    use 'nvim-lua/plenary.nvim'
+	use ({'saecki/crates.nvim', tag='stable'})
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -36,4 +33,14 @@ return require('packer').startup(function(use)
         requires = { 'junegunn/fzf', run = ':call fzf#install()' }
     }
     use 'm4xshen/autoclose.nvim'
+    use 'j-hui/fidget.nvim'
+    use {
+        'FabianWirth/search.nvim',
+        requires = { 'nvim-telescope/telescope.nvim' },
+    }
+    use 'echasnovski/mini.files'
+    use { "anuvyklack/windows.nvim",
+       requires = "anuvyklack/middleclass",
+    }
+    use 'zefei/vim-wintabs'
 end)

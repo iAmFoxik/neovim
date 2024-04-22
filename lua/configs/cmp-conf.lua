@@ -1,15 +1,13 @@
-local status, cmp = pcall(require, 'cmp')
+local status, cmp = pcall(require, "cmp")
 
 if not status then
     return
 end
 
 cmp.setup({
-    sources = {
-        { name = 'ctags' },
-        { name = 'buffer', keyword_length = 2 },
-        { name = 'crate' },
-        { name = 'nvim_lsp', keyword_length = 1 },
+    sources = cmp.config.sources({
+        { name = "buffer", keyword_length = 2 },
+        { name = "nvim_lsp", keyword_length = 1 },
         { name = "ctags",
             option = {
                 executable = "ctags",
@@ -19,7 +17,7 @@ cmp.setup({
                 },
             },
         },
-    },
+    }),
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -27,7 +25,7 @@ cmp.setup({
     },
     window = {
         completion = cmp.config.window.bordered({
-            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Pmenu",
         }),
         documentation = cmp.config.window.bordered(),
     },
@@ -44,10 +42,10 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.open_docs(),
     },
     formatting = {
-        fields = {'abbr', 'kind'},
+        fields = {'abbr', 'kind', 'menu'},
         format = function(_, item)
             local icons = require('icons')
-            item.kind = string.format("%s %s", icons[item.kind], item.kind or "")
+            item.kind = string.format("%s %s", icons[item.kind], item.kind or "?")
             return item
         end,
     },
