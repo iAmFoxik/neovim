@@ -43,5 +43,6 @@ vim.keymap.set('n', '<space>wq', cmd 'WintabsPrevious')
 
 -- 
 vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
-
+vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
+vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)
 
