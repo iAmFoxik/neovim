@@ -39,11 +39,6 @@ require("mini.files").setup({
   }
 })
 
--- Windows.nvim
-vim.o.winwidth = 20
-vim.o.winminwidth = 5
-require('windows').setup()
-
 -------
 -- Rust Settings
 -------

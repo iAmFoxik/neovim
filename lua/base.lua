@@ -68,11 +68,10 @@ opt.numberwidth = 2
 
 -- Настройка пробела в качестве leader кнопки
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
--- g.mapleader = ','
+g.mapleader = ' '
 
 -- Настройка ranger
 g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-
 
 -- Выход без сохранения
 vim.api.nvim_create_user_command('Q', 'q!', {})
@@ -81,4 +80,3 @@ vim.o.mousescroll  = 'ver:5,hor:6' -- Customize mouse scroll
 
 -- undofile
 opt.undofile = true
-opt.undodir = '~/.vim/undo-dir'

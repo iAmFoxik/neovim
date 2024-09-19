@@ -39,9 +39,6 @@ return require('packer').startup(function(use)
         requires = { 'nvim-telescope/telescope.nvim' },
     }
     use 'echasnovski/mini.files'
-    use { "anuvyklack/windows.nvim",
-       requires = "anuvyklack/middleclass",
-    }
     use 'zefei/vim-wintabs'
     use {'kaarmu/typst.vim', ft = {'typst'}}
     use {
@@ -57,6 +54,16 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
         },
     })
+    use {
+        'MarcHamamji/runner.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            requires = { 'nvim-lua/plenary.nvim' }
+        },
+        config = function()
+            require('runner').setup()
+        end
+    }
     use {
         'debugloop/telescope-undo.nvim',
         requires = {
