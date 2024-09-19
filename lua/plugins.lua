@@ -43,4 +43,35 @@ return require('packer').startup(function(use)
        requires = "anuvyklack/middleclass",
     }
     use 'zefei/vim-wintabs'
+    use {'kaarmu/typst.vim', ft = {'typst'}}
+    use {
+        "jiaoshijie/undotree",
+            requires = {
+                "nvim-lua/plenary.nvim",
+            },
+        }
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+    use {
+        'debugloop/telescope-undo.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            requires = { 'nvim-lua/plenary.nvim' }
+        },
+        config = function()
+            require('telescope').setup({
+                extensions = {
+                    undo = {
+                        saved_only = true,
+                    },
+                },
+            })
+            require('telescope').load_extension("undo")
+        end
+    }
 end)

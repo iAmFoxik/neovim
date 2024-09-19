@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/foxik/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/foxik/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
+local package_path_str = "/Users/foxik/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?/init.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?.lua;/Users/foxik/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/foxik/.cache/nvim/packer_hererocks/2.1.1725453128/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -83,16 +83,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
     url = "https://github.com/m4xshen/autoclose.nvim"
-  },
-  ["awesome-vim-colorschemes"] = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",
-    url = "https://github.com/rafi/awesome-vim-colorschemes"
-  },
-  ["barbar.nvim"] = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/barbar.nvim",
-    url = "https://github.com/romgrk/barbar.nvim"
   },
   ["bclose.vim"] = {
     loaded = true,
@@ -129,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   fzf = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/fzf",
@@ -138,11 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
-  },
-  ["github-nvim-theme"] = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -163,6 +153,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  middleclass = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/middleclass",
+    url = "https://github.com/anuvyklack/middleclass"
+  },
+  ["mini.files"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/mini.files",
+    url = "https://github.com/echasnovski/mini.files"
+  },
+  ["newpaper.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/newpaper.nvim",
+    url = "https://github.com/yorik1984/newpaper.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -189,11 +194,6 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["ranger.vim"] = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/ranger.vim",
-    url = "https://github.com/francoiscabrol/ranger.vim"
-  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
@@ -205,6 +205,28 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
+  ["search.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/search.nvim",
+    url = "https://github.com/FabianWirth/search.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["typst.vim"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/opt/typst.vim",
+    url = "https://github.com/kaarmu/typst.vim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -214,6 +236,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
+  ["vim-wintabs"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/vim-wintabs",
+    url = "https://github.com/zefei/vim-wintabs"
+  },
+  ["windows.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/windows.nvim",
+    url = "https://github.com/anuvyklack/windows.nvim"
   }
 }
 
@@ -222,6 +254,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for rust.vim]], true)
 try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\21rustfmt_autosave\6g\bvim\0", "config", "rust.vim")
 time([[Config for rust.vim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typst ++once lua require("packer.load")({'typst.vim'}, { ft = "typst" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/foxik/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], true)
+vim.cmd [[source /Users/foxik/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]]
+time([[Sourcing ftdetect script at: /Users/foxik/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

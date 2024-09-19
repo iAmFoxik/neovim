@@ -1,5 +1,7 @@
 local opts = {noremap = true}
 
+vim.g.mapleader = " "
+
 -- Telesearch
 vim.keymap.set('n', '<space>o', '<Cmd>lua MiniFiles.open()<CR>', opts)
 
@@ -34,15 +36,45 @@ end, opts)
 local function cmd(command)
    return table.concat({ '<Cmd>', command, '<CR>' })
 end
-vim.keymap.set('n', '<space>wv', cmd 'WindowsMaximizeVertically')
-vim.keymap.set('n', '<space>wh', cmd 'WindowsMaximizeHorizontally')
-vim.keymap.set('n', '<space>ww', cmd 'WintabsClose')
-vim.keymap.set('n', '<space>we', cmd 'WintabsNext')
-vim.keymap.set('n', '<space>wq', cmd 'WintabsPrevious')
+vim.keymap.set('n', '<leader>wv', cmd 'WindowsMaximizeVertically', opts)
+vim.keymap.set('n', '<leader>wh', cmd 'WindowsMaximizeHorizontally', opts)
+vim.keymap.set('n', '<leader>ww', cmd 'WintabsClose', opts)
+vim.keymap.set('n', '<leader>we', cmd 'WintabsNext', opts)
+vim.keymap.set('n', '<leader>wq', cmd 'WintabsPrevious', opts)
+vim.keymap.set('n', '<leader>1', cmd 'WintabsGo 1', opts)
+vim.keymap.set('n', '<leader>2', cmd 'WintabsGo 2', opts)
+vim.keymap.set('n', '<leader>3', cmd 'WintabsGo 3', opts)
+vim.keymap.set('n', '<leader>4', cmd 'WintabsGo 4', opts)
+vim.keymap.set('n', '<leader>5', cmd 'WintabsGo 5', opts)
+vim.keymap.set('n', '<leader>6', cmd 'WintabsGo 6', opts)
+vim.keymap.set('n', '<leader>7', cmd 'WintabsGo 7', opts)
+vim.keymap.set('n', '<leader>8', cmd 'WintabsGo 8', opts)
+vim.keymap.set('n', '<leader>9', cmd 'WintabsGo 9', opts)
 
+-- windpws split
+vim.keymap.set('n', '<leader>-', cmd 'split', opts)
+vim.keymap.set('n', '<leader>_', cmd 'vsplit', opts)
+vim.keymap.set('n', '<leader>h', '<C-w>h', opts)
+vim.keymap.set('n', '<leader>j', '<C-w>j', opts)
+vim.keymap.set('n', '<leader>k', '<C-w>k', opts)
+vim.keymap.set('n', '<leader>l', '<C-w>l', opts)
+vim.keymap.set('n', '<leader>H', '<C-w>>', opts)
+vim.keymap.set('n', '<leader>J', '<C-w>-', opts)
+vim.keymap.set('n', '<leader>K', '<C-w>+', opts)
+vim.keymap.set('n', '<leader>L', '<C-w><', opts)
+vim.keymap.set('n', '<leader>x', '<C-w>c', opts)
+
+-- undotree
+vim.keymap.set('n', '<leader>u', cmd 'Telescope undo', opts)
+
+-- lazygit
+vim.keymap.set('n', '<leader>gg', cmd 'LazyGit', opts)
+
+-- runner
+vim.keymap.set('n', '<leader>B', require('runner').run, opts)
 
 -- 
 vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
-vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
-vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)
+-- vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
+-- vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)
 

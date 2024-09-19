@@ -23,7 +23,10 @@ require('configs.crates')
 require('configs.telesearch')
 
 -- Fidget
-require("fidget").setup()
+require('fidget').setup()
+
+-- undotree
+require('undotree').setup()
 
 -- Mini.Files
 require("mini.files").setup({
@@ -52,3 +55,11 @@ rt.setup({
     }
 })
 
+local helpers = require('runner.handlers.helpers')
+local choice = require('runner.handlers.helpers').choice
+require('runner').set_handler('rust', choice({
+    ['Build'] = helpers.shell_handler('cargo build'),
+    ['Build release'] = helpers.shell_handler('cargo build --release'),
+    ['Run'] = helpers.shell_handler('cargo run'),
+    ['Run release'] = helpers.shell_handler('cargo run --release'),
+}))
