@@ -1,7 +1,5 @@
 local opts = {noremap = true}
 
-vim.g.mapleader = " "
-
 -- Telesearch
 vim.keymap.set('n', '<space>o', '<Cmd>lua MiniFiles.open()<CR>', opts)
 
