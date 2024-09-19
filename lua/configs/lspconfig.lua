@@ -5,6 +5,12 @@ if not status then
 end
 
 -- local capabilities = require('cmp_nvim_lsp').capabilities
+lspconfig.typst_lsp.setup({
+    filetypes = {"typst"},
+    settings = {
+        exportPdf = "onType",
+    }
+})
 
 lspconfig.lua_ls.setup {}
 
@@ -33,5 +39,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<lender>p', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>bd', function ()
+        vim.cmd([[
+            vsplit
+        ]])
+        vim.lsp.buf.definition()
+    end, opts)
   end,
 })
