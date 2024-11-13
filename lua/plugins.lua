@@ -24,10 +24,37 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
+    use 'notomo/cmp-neosnippet'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 	use 'delphinus/cmp-ctags'
 	use 'simrat39/rust-tools.nvim'
+    use 'echasnovski/mini.surround'
+    use 'stevearc/dressing.nvim'
+    use {
+        'gelguy/wilder.nvim',
+        require = {'romgrk/fzy-lua-native'},
+        config = function()
+            local wilder = require('wilder')
+            wilder.set_option('renderer', wilder.wildmenu_renderer({
+                highlighter = wilder.basic_highlighter(),
+            }))
+        end,
+    }
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end}
+    use {
+      'stevearc/overseer.nvim',
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "stevearc/dressing.nvim",
+        },
+      config = function() require('overseer').setup() end
+    }
     use {
         'junegunn/fzf.vim',
         requires = { 'junegunn/fzf', run = ':call fzf#install()' }
@@ -54,16 +81,6 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
         },
     })
-    use {
-        'MarcHamamji/runner.nvim',
-        requires = {
-            'nvim-telescope/telescope.nvim',
-            requires = { 'nvim-lua/plenary.nvim' }
-        },
-        config = function()
-            require('runner').setup()
-        end
-    }
     use {
         'debugloop/telescope-undo.nvim',
         requires = {

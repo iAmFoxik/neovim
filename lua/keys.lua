@@ -68,11 +68,12 @@ vim.keymap.set('n', '<leader>u', cmd 'Telescope undo', opts)
 -- lazygit
 vim.keymap.set('n', '<leader>gg', cmd 'LazyGit', opts)
 
--- runner
-vim.keymap.set('n', '<leader>B', require('runner').run, opts)
+-- Overseer
+vim.keymap.set('n', '<leader>b', cmd 'OverseerRun', opts)
 
 -- 
 vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
 -- vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
 -- vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)
+
 

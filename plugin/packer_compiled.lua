@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["autoclose.nvim"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
@@ -114,6 +119,16 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["crates.nvim"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/crates.nvim",
@@ -144,6 +159,11 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -153,11 +173,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  middleclass = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/middleclass",
-    url = "https://github.com/anuvyklack/middleclass"
   },
   ["mini.files"] = {
     loaded = true,
@@ -210,6 +225,12 @@ _G.packer_plugins = {
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/search.nvim",
     url = "https://github.com/FabianWirth/search.nvim"
   },
+  ["telescope-undo.nvim"] = {
+    config = { "\27LJ\2\n©\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\1\15extensions\0\tundo\1\0\1\tundo\0\1\0\1\15saved_only\2\nsetup\14telescope\frequire\0" },
+    loaded = true,
+    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/telescope-undo.nvim",
+    url = "https://github.com/debugloop/telescope-undo.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -225,7 +246,7 @@ _G.packer_plugins = {
   undotree = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
+    url = "https://github.com/jiaoshijie/undotree"
   },
   ["vim-vsnip"] = {
     loaded = true,
@@ -241,11 +262,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/vim-wintabs",
     url = "https://github.com/zefei/vim-wintabs"
-  },
-  ["windows.nvim"] = {
-    loaded = true,
-    path = "/Users/foxik/.local/share/nvim/site/pack/packer/start/windows.nvim",
-    url = "https://github.com/anuvyklack/windows.nvim"
   }
 }
 
@@ -254,6 +270,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for rust.vim]], true)
 try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\21rustfmt_autosave\6g\bvim\0", "config", "rust.vim")
 time([[Config for rust.vim]], false)
+-- Config for: telescope-undo.nvim
+time([[Config for telescope-undo.nvim]], true)
+try_loadstring("\27LJ\2\n©\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\1\15extensions\0\tundo\1\0\1\tundo\0\1\0\1\15saved_only\2\nsetup\14telescope\frequire\0", "config", "telescope-undo.nvim")
+time([[Config for telescope-undo.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
