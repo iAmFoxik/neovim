@@ -39,6 +39,40 @@ require("mini.files").setup({
   }
 })
 
+-- Mini.Surround
+require('mini.surround').setup()
+
+-- Wilder
+-- require('wilder').setup({modes = {':', '/'}})
+
+--OverSeer
+require('overseer').setup({
+    strategy = {
+        "toggleterm",
+        direction = 'float',
+        auto_scroll = true,
+    },
+})
+
+-- toggleterm
+require("toggleterm").setup({
+    size = 20,
+    open_mapping = [[<c-\>]],
+    hide_numbers = true,
+    shade_filetypes = {},
+    shade_terminals = true,
+    shading_factor = 2,
+    start_in_insert = true,
+    insert_mappings = true,
+    terminal_mappings = true,
+    persist_size = true,
+    direction = 'horizontal',
+    -- direction = 'float',
+    close_on_exit = true,
+    shell = vim.o.shell,
+})
+
+
 -------
 -- Rust Settings
 -------
@@ -49,12 +83,3 @@ rt.setup({
         capabilities = require('cmp_nvim_lsp').default_capabilities()
     }
 })
-
-local helpers = require('runner.handlers.helpers')
-local choice = require('runner.handlers.helpers').choice
-require('runner').set_handler('rust', choice({
-    ['Build'] = helpers.shell_handler('cargo build'),
-    ['Build release'] = helpers.shell_handler('cargo build --release'),
-    ['Run'] = helpers.shell_handler('cargo run'),
-    ['Run release'] = helpers.shell_handler('cargo run --release'),
-}))
