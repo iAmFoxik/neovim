@@ -6,24 +6,22 @@ end
 
 cmp.setup({
   sources = cmp.config.sources({
-    { name = "buffer",    keyword_length = 2 },
-    { name = "nvim_lsp",  keyword_length = 1 },
-    { name = "luasnip",   option = { show_autosnippets = true } },
-    { name = "neosnippet" },
+    { name = "buffer",   keyword_length = 2 },
+    { name = "nvim_lsp", keyword_length = 1 },
+    { name = "luasnip" },
+    { name = "nvim_lua" },
+    { name = "path" },
     {
       name = "ctags",
       option = {
         executable = "ctags",
         trigger_characters = { "." },
-        trigger_characters_ft = {
-          rust = { ".", "::" },
-        },
       },
     },
   }),
   snippet = {
-    expand = function(_)
-      -- unused
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
     end,
   },
   window = {
@@ -36,22 +34,22 @@ cmp.setup({
     ['<Up>'] = cmp.mapping.select_prev_item(),
     ['<Down>'] = cmp.mapping.select_next_item(),
     ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<CR>'] = cmp.mapping.confirm({
+    ['l'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      select = true
     }),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-d>'] = cmp.mapping.open_docs(),
   },
-  formatting = {
-    fields = { 'abbr', 'kind', 'menu' },
-    format = function(_, item)
-      local icons = require('icons')
-      item.kind = string.format("%s %s", icons[item.kind], item.kind or "?")
-      return item
-    end,
-  },
+  -- formatting = {
+  --   fields = { 'abbr', 'kind', 'menu' },
+  --   format = function(_, item)
+  --     local icons = require('icons')
+  --     item.kind = string.format("%s %s", icons[item.kind], item.kind or "?")
+  --     return item
+  --   end,
+  -- },
   view = {
     docs = {
       auto_open = false,
@@ -70,19 +68,12 @@ cmp.setup.cmdline(':', {
       return vim_item
     end,
   },
-  window = {
-    completion = cmp.config.window.bordered({
-      col_offset = -3,
-      side_padding = 1,
-      max_height = 7,
-    })
-  },
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer', max_item_count = 7 }
+    { name = 'buffer' }
   },
   formatting = {
     fields = { 'abbr', 'menu' },

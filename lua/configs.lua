@@ -22,6 +22,9 @@ require('configs.crates')
 -- Telesearch
 require('configs.telesearch')
 
+-- Telescore Settings
+require('configs.telesettings')
+
 -- Fidget
 require('fidget').setup()
 
