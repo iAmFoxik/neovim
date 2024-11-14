@@ -6,9 +6,10 @@ end
 
 cmp.setup({
   sources = cmp.config.sources({
-    { name = "buffer",   keyword_length = 2 },
+    -- { name = "buffer",   keyword_length = 2 },
     { name = "nvim_lsp", keyword_length = 1 },
-    { name = "luasnip" },
+    -- { name = "luasnip" },
+    { name = 'vsnip' },
     { name = "nvim_lua" },
     { name = "path" },
     {
@@ -16,12 +17,20 @@ cmp.setup({
       option = {
         executable = "ctags",
         trigger_characters = { "." },
+        trigger_characters_fs = {
+          rust = { "::", "." },
+        }
       },
     },
   }),
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      -- local file = io.open("output.txt", "w+")
+      -- file:write(args.body)
+      -- file:close()
+      vim.fn["vsnip#anonymous"](args.body)
+      -- vim.snippet.expand(args.body)
+      -- require('luasnip').lsp_expand(args.body)
     end,
   },
   window = {
@@ -34,8 +43,7 @@ cmp.setup({
     ['<Up>'] = cmp.mapping.select_prev_item(),
     ['<Down>'] = cmp.mapping.select_next_item(),
     ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['l'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
+    ['<CR>'] = cmp.mapping.confirm({
       select = true
     }),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -54,31 +62,40 @@ cmp.setup({
     docs = {
       auto_open = false,
     }
-  }
-})
-
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'cmdline' }
   },
-  formatting = {
-    fields = { 'abbr', 'menu' },
-    format = function(entry, vim_item)
-      return vim_item
-    end,
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect',
+    autocomplete = {
+      cmp.TriggerEvent.TextChanged,
+      cmp.TriggerEvent.InsertEnter,
+    },
+
+    keyword_length = 0,
   },
 })
 
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  },
-  formatting = {
-    fields = { 'abbr', 'menu' },
-    format = function(entry, vim_item)
-      return vim_item
-    end,
-  }
-})
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = 'cmdline' }
+--   },
+--   formatting = {
+--     fields = { 'abbr', 'menu' },
+--     format = function(entry, vim_item)
+--       return vim_item
+--     end,
+--   },
+-- })
+--
+-- cmp.setup.cmdline({ '/', '?' }, {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = 'buffer' }
+--   },
+--   formatting = {
+--     fields = { 'abbr', 'menu' },
+--     format = function(entry, vim_item)
+--       return vim_item
+--     end,
+--   }
+-- })
