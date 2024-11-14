@@ -74,28 +74,28 @@ cmp.setup({
   },
 })
 
--- cmp.setup.cmdline(':', {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = {
---     { name = 'cmdline' }
---   },
---   formatting = {
---     fields = { 'abbr', 'menu' },
---     format = function(entry, vim_item)
---       return vim_item
---     end,
---   },
--- })
---
--- cmp.setup.cmdline({ '/', '?' }, {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = {
---     { name = 'buffer' }
---   },
---   formatting = {
---     fields = { 'abbr', 'menu' },
---     format = function(entry, vim_item)
---       return vim_item
---     end,
---   }
--- })
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'cmdline' }
+  },
+  formatting = {
+    fields = { 'abbr', 'menu' },
+    format = function(entry, vim_item)
+      return vim_item
+    end,
+  },
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  },
+  formatting = {
+    fields = { 'abbr', 'menu' },
+    format = function(entry, vim_item)
+      return vim_item
+    end,
+  }
+})
