@@ -1,14 +1,14 @@
 local builtin = require('telescope.builtin')
 require('search').setup({
-    append_tabs = {
-    },
-    tabs = {
+  append_tabs = {
+  },
+  tabs = {
     {
-        "Buffers",
-        function (opts)
-            opts = opts or {}
-            builtin.buffers(opts)
-        end
+      "Buffers",
+      function(opts)
+        opts = opts or {}
+        builtin.buffers(opts)
+      end
     },
     {
       "Files",
@@ -22,18 +22,18 @@ require('search').setup({
       end
     },
     {
-        "Diagnostic",
-        function (opts)
-            opts = opts or {}
-            builtin.diagnostics(opts)
-        end
+      "Diagnostic",
+      function(opts)
+        opts = opts or {}
+        builtin.diagnostics(opts)
+      end
     },
     {
-        "Treesitter",
-        function (opts)
-            opts = opts or {}
-            builtin.treesitter(opts)
-        end
+      "Treesitter",
+      function(opts)
+        opts = opts or {}
+        builtin.treesitter(opts)
+      end
     }
   },
 })

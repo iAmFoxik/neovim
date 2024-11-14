@@ -1,4 +1,4 @@
-local opts = {noremap = true}
+local opts = { noremap = true }
 
 -- Telesearch
 vim.keymap.set('n', '<space>o', '<Cmd>lua MiniFiles.open()<CR>', opts)
@@ -11,28 +11,28 @@ vim.keymap.set('n', '<leader>cf', crates.show_features_popup, opts)
 vim.diagnostic.config({
   virtual_text = false,
 })
-local warn = { min=vim.diagnostic.severity.WARN }
+local warn = { min = vim.diagnostic.severity.WARN }
 
-vim.keymap.set('n', '[w', function ()
-    vim.diagnostic.goto_prev({ severity=warn })
+vim.keymap.set('n', '[w', function()
+  vim.diagnostic.goto_prev({ severity = warn })
 end, opts)
 
-vim.keymap.set('n', ']w', function ()
-    vim.diagnostic.goto_next({ severity=warn })
+vim.keymap.set('n', ']w', function()
+  vim.diagnostic.goto_next({ severity = warn })
 end, opts)
 
-local error = { min=vim.diagnostic.severity.ERROR }
-vim.keymap.set('n', '[e', function ()
-    vim.diagnostic.goto_prev({ severity=error })
+local error = { min = vim.diagnostic.severity.ERROR }
+vim.keymap.set('n', '[e', function()
+  vim.diagnostic.goto_prev({ severity = error })
 end, opts)
-vim.keymap.set('n', ']e', function ()
-    vim.diagnostic.goto_next({ severity=error })
+vim.keymap.set('n', ']e', function()
+  vim.diagnostic.goto_next({ severity = error })
 end, opts)
 
 
 -- Windows.nvim
 local function cmd(command)
-   return table.concat({ '<Cmd>', command, '<CR>' })
+  return table.concat({ '<Cmd>', command, '<CR>' })
 end
 vim.keymap.set('n', '<leader>wv', cmd 'WindowsMaximizeVertically', opts)
 vim.keymap.set('n', '<leader>wh', cmd 'WindowsMaximizeHorizontally', opts)
@@ -71,9 +71,7 @@ vim.keymap.set('n', '<leader>gg', cmd 'LazyGit', opts)
 -- Overseer
 vim.keymap.set('n', '<leader>b', cmd 'OverseerRun', opts)
 
--- 
+--
 vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
 -- vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
 -- vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)
-
-

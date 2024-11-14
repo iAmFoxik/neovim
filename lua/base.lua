@@ -3,7 +3,7 @@
 local opt = vim.opt
 local g = vim.g
 
---[[ Поиск ]]--
+--[[ Поиск ]] --
 -- Игнорировать регистр при поиске
 -- Если теперь введем "IGNORE", то он найдет и "ignore"
 opt.ignorecase = true
@@ -15,7 +15,7 @@ opt.smartcase = true
 -- Подсвечивать найденные текстовые объекты
 opt.showmatch = true
 
---[[ Настройка табов ]]--
+--[[ Настройка табов ]] --
 -- Установка количества пробельных символов, когда сдвигаем с помощью "<", ">"
 -- По сути не смотря на expandtab в терминале все равно отображаются пробельные символы, поэтому установим их количество на одно нажатие этих кнопок
 opt.shiftwidth = 4
@@ -30,7 +30,7 @@ opt.smartindent = true
 -- Эта опция гарантирует, что для отступов строк будут использоваться пробелы, даже когда вы нажимаете клавишу «Tab».
 opt.expandtab = true
 
---[[ Настройка панелей ]]--
+--[[ Настройка панелей ]] --
 -- Вертикальные сплиты становятся справа
 -- По умолчанию панели в Neovim ставятся в зависимости от расположения текущей панели. Данная настройка поможет нам держать панели в порядке
 opt.splitright = true
@@ -38,7 +38,7 @@ opt.splitright = true
 -- Горизонтальные сплиты становятся снизу
 opt.splitbelow = true
 
---[[ Дополнительные настройки ]]--
+--[[ Дополнительные настройки ]] --
 -- Используем системный буфер обмена
 opt.clipboard = 'unnamedplus'
 
@@ -76,9 +76,9 @@ g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 -- Выход без сохранения
 vim.api.nvim_create_user_command('Q', 'q!', {})
 
-vim.o.mousescroll  = 'ver:5,hor:6' -- Customize mouse scroll
+vim.o.mousescroll = 'ver:5,hor:6' -- Customize mouse scroll
 
-vim.o.scrolloff = 5
+vim.o.scrolloff   = 5
 
 -- undofile
-opt.undofile = true
+opt.undofile      = true
