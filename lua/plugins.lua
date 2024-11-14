@@ -4,7 +4,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'numToStr/Comment.nvim'
-	use "lukas-reineke/indent-blankline.nvim"
+	use 'lukas-reineke/indent-blankline.nvim'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'lewis6991/gitsigns.nvim'
 	use 'rbgrouleff/bclose.vim'
@@ -16,9 +16,9 @@ return require('packer').startup(function(use)
 			vim.g.rustfmt_autosave = 1
 		end
 	})
-    use "yorik1984/newpaper.nvim"
+    use 'yorik1984/newpaper.nvim'
     use 'nvim-lua/plenary.nvim'
-	use ({'saecki/crates.nvim', tag='stable'})
+	use 'saecki/crates.nvim'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -44,16 +44,21 @@ return require('packer').startup(function(use)
             }))
         end,
     }
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end}
     use {
-      'stevearc/overseer.nvim',
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require('toggleterm').setup()
+        end
+    }
+    use {
+        'stevearc/overseer.nvim',
         dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "stevearc/dressing.nvim",
+            'nvim-telescope/telescope.nvim',
+            'stevearc/dressing.nvim',
         },
-      config = function() require('overseer').setup() end
+        config = function()
+            require('overseer').setup()
+        end
     }
     use {
         'junegunn/fzf.vim',
@@ -67,18 +72,16 @@ return require('packer').startup(function(use)
     }
     use 'echasnovski/mini.files'
     use 'zefei/vim-wintabs'
-    use {'kaarmu/typst.vim', ft = {'typst'}}
     use {
-        "jiaoshijie/undotree",
-            requires = {
-                "nvim-lua/plenary.nvim",
-            },
-        }
-    use({
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
+        'jiaoshijie/undotree',
         requires = {
-            "nvim-lua/plenary.nvim",
+            'nvim-lua/plenary.nvim',
+        },
+    }
+    use({
+        'kdheepak/lazygit.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
         },
     })
     use {
@@ -95,7 +98,7 @@ return require('packer').startup(function(use)
                     },
                 },
             })
-            require('telescope').load_extension("undo")
+            require('telescope').load_extension('undo')
         end
     }
 end)
