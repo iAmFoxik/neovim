@@ -1,4 +1,5 @@
-require('plugins')
+require('config.lazy')
+-- require('plugins')
 require('base')
 require('keys')
 require('configs')
