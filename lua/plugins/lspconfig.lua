@@ -132,6 +132,9 @@ return {
       'nvim-telescope/telescope.nvim',
       'stevearc/dressing.nvim',
     },
+    keys = {
+      { '<leader>b', '<cmd>OverseerRun<CR>', desc = 'Run Overseer Task' },
+    },
     config = function()
       require('overseer').setup({
         strategy = {

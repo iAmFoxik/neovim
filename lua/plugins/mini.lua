@@ -1,6 +1,9 @@
 return {
   {
     'echasnovski/mini.files',
+    keys = {
+      { '<leader>o', '<cmd>lua MiniFiles.open()<cr>', desc = 'Undo Tree' },
+    },
     config = function()
       require('mini.files').setup({
         windows = {
