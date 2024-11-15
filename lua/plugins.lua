@@ -51,11 +51,11 @@ return require('packer').startup(function(use)
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
       'hrsh7th/cmp-vsnip',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'delphinus/cmp-ctags',
     },
   }
+  use { 'L3MON4D3/LuaSnip', wants = 'hrsh7th/nvim-cmp' }
+  use { 'saadparwaiz1/cmp_luasnip', wants = 'hrsh7th/nvim-cmp' }
+  use { 'delphinus/cmp-ctags', wants = 'hrsh7th/nvim-cmp' }
 
   -- Rust
   use({
