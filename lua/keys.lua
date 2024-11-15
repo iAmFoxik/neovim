@@ -4,8 +4,8 @@ local opts = { noremap = true }
 vim.keymap.set('n', '<space>o', '<Cmd>lua MiniFiles.open()<CR>', opts)
 
 -- Crates.nvim
-local crates = require('crates')
-vim.keymap.set('n', '<leader>cf', crates.show_features_popup, opts)
+-- local crates = require('crates')
+-- vim.keymap.set('n', '<leader>cf', crates.show_features_popup, opts)
 
 -- Vim diagnostic
 vim.diagnostic.config({

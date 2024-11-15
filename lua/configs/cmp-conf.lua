@@ -26,11 +26,6 @@ cmp.setup({
   }),
   snippet = {
     expand = function(args)
-      vim.notify(vim.inspect(args.body))
-
-      local file = io.open("error_log.txt", "a")
-      file:write("[cmp]: " .. vim.inspect(require('cmp')) .. "\n")
-      file:close()
       luasnip.lsp_expand(args.body)
     end,
   },
