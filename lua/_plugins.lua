@@ -18,15 +18,6 @@ return require('packer').startup(function(use)
   -- cmp
 
   -- Rust
-  use({
-    'rust-lang/rust.vim',
-    config = function()
-      vim.g.rustfmt_autosave = 1
-    end
-  })
-  -- use 'simrat39/rust-tools.nvim'
-  use 'mrcjkb/rustaceanvim'
-  use 'saecki/crates.nvim'
 
   -- Утилиты и функциональность редактора
   use 'rbgrouleff/bclose.vim'
@@ -36,24 +27,9 @@ return require('packer').startup(function(use)
   use 'stevearc/dressing.nvim'
 
   -- git
-  use 'lewis6991/gitsigns.nvim'
-  use({
-    'kdheepak/lazygit.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-    },
-  })
 
 
   -- terminal and runner
-  use 'akinsho/toggleterm.nvim'
-  use {
-    'stevearc/overseer.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'stevearc/dressing.nvim',
-    },
-  }
 
   -- Search
   use {
@@ -62,7 +38,6 @@ return require('packer').startup(function(use)
   }
 
   -- UI
-  use 'j-hui/fidget.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

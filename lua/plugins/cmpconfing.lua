@@ -18,16 +18,16 @@ return {
           { name = 'nvim_lua' },
           { name = 'luasnip' },
           { name = 'path' },
-          -- {
-          --   name = 'ctags',
-          --   option = {
-          --     executable = 'ctags',
-          --     trigger_characters = { '.' },
-          --     trigger_characters_fs = {
-          --       rust = { '::', '.' },
-          --     }
-          --   },
-          -- },
+          {
+            name = 'ctags',
+            option = {
+              executable = 'ctags',
+              trigger_characters = { '.' },
+              trigger_characters_fs = {
+                rust = { '::', '.' },
+              }
+            },
+          },
         }),
         snippet = {
           expand = function(args)

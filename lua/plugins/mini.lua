@@ -14,5 +14,10 @@ return {
     end
   },
 
-  { 'echasnovski/mini.surround' }
+  {
+    'echasnovski/mini.surround',
+    config = function()
+      require('mini.surround').setup()
+    end
+  }
 }

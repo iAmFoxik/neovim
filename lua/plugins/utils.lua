@@ -9,5 +9,8 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
+    config = function()
+      require('undotree').setup()
+    end
   }
 }
