@@ -4,7 +4,47 @@ if not status then
   return
 end
 
--- local capabilities = require('cmp_nvim_lsp').capabilities
+local servers = {
+  -- "rust_analyzer",
+  "lua_ls",
+  "texlab",
+  "zls"
+}
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- -- send actions with hover request
+-- capabilities.experimental = {
+--   hoverActions = true,
+--   hoverRange = true,
+--   serverStatusNotification = true,
+--   snippetTextEdit = true,
+--   codeActionGroup = true,
+--   ssr = true,
+-- }
+--
+-- -- enable auto-import
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = { "documentation", "detail", "additionalTextEdits" },
+-- }
+
+-- rust analyzer goodies
+-- capabilities.experimental.commands = {
+--   commands = {
+--     "rust-analyzer.runSingle",
+--     "rust-analyzer.debugSingle",
+--     "rust-analyzer.showReferences",
+--     "rust-analyzer.gotoLocation",
+--     "editor.action.triggerParameterHints",
+--   },
+-- }
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    capabilities = capabilities,
+  }
+end
+
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -21,21 +61,25 @@ lspconfig.lua_ls.setup({
 
 lspconfig.zls.setup {}
 
-lspconfig.rust_analyzer.setup({
-  -- capabilities = capabilities,
-  filetypes = { "rust" },
-  settings = {
-    ['rust-analyzer'] = {
-      standalone = true,
-      cargo = {
-        allFeatures = true,
-      },
-      diagnostics = {
-        enable = false,
-      }
-    },
-  },
-})
+-- lspconfig.rust_analyzer.setup({
+--   filetypes = { "rust" },
+--   settings = {
+--     ['rust-analyzer'] = {
+--       standalone = true,
+--       cargo = {
+--         allFeatures = true,
+--       },
+--       completion = {
+--         callable = {
+--           snippets = "complete",
+--         },
+--       },
+--       diagnostics = {
+--         enable = false,
+--       }
+--     },
+--   },
+-- })
 
 -- latex on mac
 lspconfig.texlab.setup {}

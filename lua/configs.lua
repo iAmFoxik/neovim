@@ -80,9 +80,19 @@ require("toggleterm").setup({
 -- Rust Settings
 -------
 
-local rt = require("rust-tools")
-rt.setup({
-  server = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
-  }
-})
+-- local rt = require("rust-tools")
+--
+-- rt.setup({
+--   server = {
+--     capabilities = require('cmp_nvim_lsp').default_capabilities(),
+--     settings = {
+--       ["rust-analyzer"] = {
+--         completion = {
+--           callable = {
+--             snippets = "complete",
+--           },
+--         },
+--       },
+--     },
+--   }
+-- })

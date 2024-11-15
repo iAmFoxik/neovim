@@ -51,8 +51,8 @@ return require('packer').startup(function(use)
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
       'hrsh7th/cmp-vsnip',
-      -- 'L3MON4D3/LuaSnip',
-      -- 'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
       'delphinus/cmp-ctags',
     },
   }
@@ -64,7 +64,8 @@ return require('packer').startup(function(use)
       vim.g.rustfmt_autosave = 1
     end
   })
-  use 'simrat39/rust-tools.nvim'
+  -- use 'simrat39/rust-tools.nvim'
+  use 'mrcjkb/rustaceanvim'
   use 'saecki/crates.nvim'
 
   -- Утилиты и функциональность редактора

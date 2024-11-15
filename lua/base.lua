@@ -78,7 +78,7 @@ vim.api.nvim_create_user_command('Q', 'q!', {})
 
 vim.o.mousescroll = 'ver:5,hor:6' -- Customize mouse scroll
 
-vim.o.scrolloff   = 5
+vim.o.scrolloff = 5
 
 -- undofile
-opt.undofile      = true
+opt.undofile = true

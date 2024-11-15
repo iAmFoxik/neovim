@@ -4,33 +4,34 @@ if not status then
   return
 end
 
+local luasnip = require('luasnip')
+luasnip.setup {}
+
 cmp.setup({
   sources = cmp.config.sources({
-    -- { name = "buffer",   keyword_length = 2 },
-    { name = "nvim_lsp", keyword_length = 1 },
-    -- { name = "luasnip" },
-    { name = 'vsnip' },
+    { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = 'luasnip' },
     { name = "path" },
-    {
-      name = "ctags",
-      option = {
-        executable = "ctags",
-        trigger_characters = { "." },
-        trigger_characters_fs = {
-          rust = { "::", "." },
-        }
-      },
-    },
+    -- {
+    --   name = "ctags",
+    --   option = {
+    --     executable = "ctags",
+    --     trigger_characters = { "." },
+    --     trigger_characters_fs = {
+    --       rust = { "::", "." },
+    --     }
+    --   },
+    -- },
   }),
   snippet = {
     expand = function(args)
-      -- local file = io.open("output.txt", "w+")
-      -- file:write(args.body)
-      -- file:close()
-      vim.fn["vsnip#anonymous"](args.body)
-      -- vim.snippet.expand(args.body)
-      -- require('luasnip').lsp_expand(args.body)
+      vim.notify(vim.inspect(args.body))
+
+      local file = io.open("error_log.txt", "a")
+      file:write("[cmp]: " .. vim.inspect(require('cmp')) .. "\n")
+      file:close()
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
@@ -44,20 +45,23 @@ cmp.setup({
     ['<Down>'] = cmp.mapping.select_next_item(),
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
+    ['<C-l>'] = cmp.mapping.complete(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-d>'] = cmp.mapping.open_docs(),
   },
-  -- formatting = {
-  --   fields = { 'abbr', 'kind', 'menu' },
-  --   format = function(_, item)
-  --     local icons = require('icons')
-  --     item.kind = string.format("%s %s", icons[item.kind], item.kind or "?")
-  --     return item
-  --   end,
-  -- },
+  formatting = {
+    fields = { 'abbr', 'kind', 'menu' },
+    format = function(entry, item)
+      local icons = require('icons')
+      item.kind = string.format("%s %s", icons[item.kind], item.kind or "?")
+      -- vim.notify(vim.inspect(entry.source))
+      return item
+    end,
+  },
   view = {
     docs = {
       auto_open = false,
