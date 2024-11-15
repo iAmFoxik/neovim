@@ -1,6 +1,3 @@
--- Comment
-require('Comment').setup()
-
 -- cmp
 require('configs.cmp-conf')
 
@@ -13,9 +10,6 @@ require('configs.mason-lsp')
 -- lspconfig
 require('configs.lspconfig')
 
--- AutoClose
-require('autoclose').setup()
-
 -- Crates
 require('configs.crates')
 
@@ -24,6 +18,15 @@ require('configs.telesearch')
 
 -- Telescore Settings
 require('configs.telesettings')
+
+-- Comment
+require('Comment').setup()
+
+-- AutoClose
+require('autoclose').setup()
+
+-- theme
+require('newpaper').setup()
 
 -- Fidget
 require('fidget').setup()
@@ -44,9 +47,6 @@ require("mini.files").setup({
 
 -- Mini.Surround
 require('mini.surround').setup()
-
--- Wilder
--- require('wilder').setup({modes = {':', '/'}})
 
 --OverSeer
 require('overseer').setup({
