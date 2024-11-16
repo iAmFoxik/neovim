@@ -41,19 +41,3 @@ end, opts)
 vim.keymap.set('n', ']e', function()
   vim.diagnostic.goto_next({ severity = error })
 end, opts)
-
-
--- Windows.nvim
-
-
--- undotree
-
--- lazygit
--- vim.keymap.set('n', '<leader>gg', cmd 'LazyGit', opts)
-
--- Overseer
--- vim.keymap.set('n', '<leader>b', cmd 'OverseerRun', opts)
-
---
--- vim.keymap.set('n', '<space>b', '<Cmd>Cargo build --release<CR>', opts)
--- vim.keymap.set('n', '<space>B', '<Cmd>Cargo run --release<CR>', opts)

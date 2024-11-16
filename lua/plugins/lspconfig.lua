@@ -108,7 +108,7 @@ return {
   {
     'akinsho/toggleterm.nvim',
     config = function()
-      require("toggleterm").setup({
+      require('toggleterm').setup({
         size = 20,
         open_mapping = [[<c-\>]],
         hide_numbers = true,
@@ -138,7 +138,7 @@ return {
     config = function()
       require('overseer').setup({
         strategy = {
-          "toggleterm",
+          'toggleterm',
           direction = 'float',
           auto_scroll = true,
         },

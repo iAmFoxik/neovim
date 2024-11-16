@@ -35,14 +35,29 @@ return {
     end
   },
   {
-    "hedyhli/outline.nvim",
+    'hedyhli/outline.nvim',
     lazy = true,
-    cmd = { "Outline", "OutlineOpen" },
+    cmd = { 'Outline', 'OutlineOpen' },
     keys = {
-      { "<leader>f", "<cmd>Outline<CR>", desc = "Toggle outline" },
+      { '<leader>f', '<cmd>Outline<CR>', desc = 'Toggle outline' },
     },
     opts = {
       -- Your setup opts here
+    },
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module 'ibl'
+    ---@type ibl.config
+    opts = {},
+  },
+  {
+    'altermo/ultimate-autopair.nvim',
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    branch = 'v0.6',
+    opts = {
+      tabout = { enable = true },
     },
   },
 }
