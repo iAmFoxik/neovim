@@ -5,8 +5,15 @@ return {
       vim.g.rustfmt_autosave = 1
     end
   },
-  -- use 'simrat39/rust-tools.nvim'
-  { 'mrcjkb/rustaceanvim' },
+  {
+    'mrcjkb/rustaceanvim',
+    config = function()
+      vim.keymap.set('n', '<leader>i', function()
+        local current_setting = vim.lsp.inlay_hint.is_enabled()
+        vim.lsp.inlay_hint.enable(not current_setting)
+      end)
+    end
+  },
   {
     'saecki/crates.nvim',
     event = { 'BufRead Cargo.toml' },

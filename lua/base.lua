@@ -54,9 +54,6 @@ opt.hidden = true
 -- Показать нумерацию строк
 opt.number = true
 
--- Сделать строки относительными
-opt.relativenumber = true
-
 -- Разделитель на 80 строк
 opt.colorcolumn = '80'
 

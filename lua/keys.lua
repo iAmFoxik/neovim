@@ -19,7 +19,6 @@ vim.keymap.set('n', '<leader>x', '<C-w>c', opts)
 
 vim.keymap.set('n', ',,', '<Cmd>nohlsearch<CR>', opts)
 
-
 -- Vim diagnostic
 vim.diagnostic.config({
   virtual_text = false,

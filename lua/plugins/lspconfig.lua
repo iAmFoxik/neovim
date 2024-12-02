@@ -133,7 +133,7 @@ return {
       'stevearc/dressing.nvim',
     },
     keys = {
-      { '<leader>b', '<cmd>OverseerRun<CR>', desc = 'Run Overseer Task' },
+      { '<F9>', '<cmd>OverseerRun<CR>', desc = 'Run Overseer Task' },
     },
     config = function()
       require('overseer').setup({
