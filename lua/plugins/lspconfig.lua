@@ -22,7 +22,8 @@ return {
         ensure_installed = {
           'lua_ls',
           'texlab',
-          'zls'
+          'zls',
+          'codelldb'
         },
         automatic_installation = true,
       })
