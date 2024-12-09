@@ -64,7 +64,6 @@ opt.so = 999
 opt.numberwidth = 2
 
 -- Настройка пробела в качестве leader кнопки
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 g.mapleader = ' '
 
 -- Настройка ranger
