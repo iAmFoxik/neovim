@@ -40,3 +40,5 @@ end, opts)
 vim.keymap.set('n', ']e', function()
   vim.diagnostic.goto_next({ severity = error })
 end, opts)
+
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })

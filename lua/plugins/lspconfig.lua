@@ -1,34 +1,5 @@
 return {
   {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup({
-        ui = {
-          icons = {
-            package_installed = '✓',
-            package_pending = '➜',
-            package_uninstalled = '✗'
-          }
-        }
-      })
-    end
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-
-    config = function()
-      local masonlsp = require('mason-lspconfig')
-      masonlsp.setup({
-        ensure_installed = {
-          'lua_ls',
-          'texlab',
-          'zls'
-        },
-        automatic_installation = true,
-      })
-    end
-  },
-  {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason-lspconfig.nvim' },
     config = function()
@@ -101,44 +72,4 @@ return {
       })
     end
   },
-  {
-    'akinsho/toggleterm.nvim',
-    config = function()
-      require('toggleterm').setup({
-        size = 20,
-        open_mapping = [[<c-\>]],
-        hide_numbers = true,
-        shade_filetypes = {},
-        shade_terminals = true,
-        shading_factor = 2,
-        start_in_insert = true,
-        insert_mappings = true,
-        terminal_mappings = true,
-        persist_size = true,
-        direction = 'horizontal',
-        -- direction = 'float',
-        close_on_exit = true,
-        shell = vim.o.shell,
-      })
-    end
-  },
-  {
-    'stevearc/overseer.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'stevearc/dressing.nvim',
-    },
-    keys = {
-      { '<F9>', '<cmd>OverseerRun<CR>', desc = 'Run Overseer Task' },
-    },
-    config = function()
-      require('overseer').setup({
-        strategy = {
-          'toggleterm',
-          direction = 'float',
-          auto_scroll = true,
-        },
-      })
-    end
-  }
 }
