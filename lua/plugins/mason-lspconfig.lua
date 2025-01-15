@@ -9,7 +9,7 @@ return {
           'lua_ls',
           'texlab',
           'zls',
-          'codelldb'
+          'asm_lsp'
         },
         automatic_installation = true,
       })
