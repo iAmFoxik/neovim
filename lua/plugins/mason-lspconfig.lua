@@ -6,9 +6,9 @@ return {
       local masonlsp = require('mason-lspconfig')
       masonlsp.setup({
         ensure_installed = {
+          'lua_ls',
           'texlab',
           'zls',
-          'asm_lsp'
         },
         automatic_installation = true,
       })
