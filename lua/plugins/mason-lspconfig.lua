@@ -11,7 +11,8 @@ return {
         ensure_installed = {
           'lua_ls',
           'texlab',
-          'zls'
+          'zls',
+          'asm_lsp'
         },
         automatic_installation = true,
       })

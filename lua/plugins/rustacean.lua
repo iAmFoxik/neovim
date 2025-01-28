@@ -9,7 +9,12 @@ return {
     'mrcjkb/rustaceanvim',
     version = '^5',
     lazy = false,
-    ft = 'rust',
+    ft = "rust",
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeature = true,
+      },
+    },
     config = function()
       vim.keymap.set('n', '<leader>i', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled()
