@@ -10,8 +10,8 @@ return {
       local barbar = require("barbar")
 
       barbar.setup({
-        clickable = true, -- Enables/disables clickable tabs
-        tabpages = false, -- Enable/disables current/total tabpages indicator (top right corner)
+        clickable = true,
+        tabpages = false,
         insert_at_end = true,
         icons = {
           button = "✖",
@@ -72,22 +72,22 @@ return {
       { '<leader>f', '<cmd>Outline<CR>', desc = 'Toggle outline' },
     },
     opts = {
-      -- Your setup opts here
     },
   },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
-    ---@module 'ibl'
-    ---@type ibl.config
     opts = {},
   },
   {
-    'altermo/ultimate-autopair.nvim',
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    branch = 'v0.6',
-    opts = {
-      tabout = { enable = true },
-    },
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end
   },
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+  }
 }

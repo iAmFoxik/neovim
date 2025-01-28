@@ -17,7 +17,19 @@ return {
       })
     end
   },
-
+  {
+    'echasnovski/mini.pairs',
+    version = '*',
+    config = function()
+      require('mini.pairs').setup({
+        modes = { insert = true, command = false, terminal = false },
+      })
+    end
+  },
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+  },
   {
     'echasnovski/mini.surround',
     config = function()

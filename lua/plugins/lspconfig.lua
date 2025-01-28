@@ -6,6 +6,7 @@ return {
       local servers = {
         'lua_ls',
         'texlab',
+        -- 'rust-analyzer',
         'zls'
       }
 
@@ -33,6 +34,8 @@ return {
       })
 
       lspconfig.zls.setup {}
+
+      -- lspconfig.rust_analyzer.setup {}
 
       -- latex on mac
       lspconfig.texlab.setup {}
