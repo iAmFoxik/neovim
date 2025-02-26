@@ -12,7 +12,6 @@ return {
           'lua_ls',
           'texlab',
           'zls',
-          'asm_lsp'
         },
         automatic_installation = true,
       })
