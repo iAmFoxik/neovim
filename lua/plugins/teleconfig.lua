@@ -8,6 +8,9 @@ return {
           undo = {
             saved_only = true,
           },
+          media_files = {
+            find_cmd = 'rg',
+          }
         },
       })
       require('telescope').load_extension('undo')

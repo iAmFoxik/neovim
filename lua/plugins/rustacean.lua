@@ -16,22 +16,33 @@ return {
       },
     },
     config = function()
-      vim.keymap.set('n', '<leader>i', function()
+      local diagnostic_virtual_text_enabled = false
+
+      local function ToggleDiagnosticVirtualText()
+        diagnostic_virtual_text_enabled = not diagnostic_virtual_text_enabled
+        vim.diagnostic.config({
+          virtual_text = diagnostic_virtual_text_enabled and {
+            source = "always",
+            spacing = 4,
+            prefix = '',
+            format = function(diagnostic)
+              return diagnostic.message
+            end,
+          } or false
+        })
+      end
+
+
+      vim.keymap.set('n', '<leader>iv', ToggleDiagnosticVirtualText, { desc = 'Toggle diagnostic virtual text' })
+
+      vim.keymap.set('n', '<leader>ii', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled()
         vim.lsp.inlay_hint.enable(not current_setting)
-      end)
-      -- local mason_registry = require('mason-registry')
-      -- local codelldb = mason_registry.get_package('codelldb')
-      -- local extension_path = codelldb:get_install_path() .. '/extension/'
-      -- local codelldb_path = extension_path .. 'adapter/codelldb'
-      -- local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
-      -- local cfg = require('rustaceanvim.config')
-      --
-      -- vim.g.rustaceanvim = {
-      --   dap = {
-      --     adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-      --   },
-      -- }
+      end, { desc = 'Toggle inlay hint' })
+
+      vim.keymap.set('n', '<leader>rd', function()
+        vim.cmd("RustLsp renderDiagnostic")
+      end, { desc = 'Toggle inline diagnostic' })
     end
   },
   {

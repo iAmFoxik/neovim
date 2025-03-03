@@ -20,18 +20,14 @@ return {
         ['rust_analyzer'] = function() end,
       }
 
-      -- sign({ name = 'DiagnosticSignError', text = '✘' })
-      -- sign({ name = 'DiagnosticSignWarn', text = '▲' })
-      -- sign({ name = 'DiagnosticSignHint', text = '⚑' })
-      -- sign({ name = 'DiagnosticSignInfo', text = '' })
       vim.diagnostic.config({
         virtual_text = true,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.ERROR] = '✘',
             [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.HINT] = '',
-            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '⚑',
+            [vim.diagnostic.severity.INFO] = '',
           },
           numhl = {
             [vim.diagnostic.severity.ERROR] = 'DiagnosticError',

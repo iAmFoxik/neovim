@@ -5,9 +5,8 @@ return {
     config = function()
       local servers = {
         'lua_ls',
-        'texlab',
-        -- 'rust-analyzer',
-        'zls'
+        'zls',
+        'pylsp'
       }
 
       local lspconfig = require('lspconfig')
@@ -34,25 +33,36 @@ return {
       })
 
       lspconfig.zls.setup {}
+      lspconfig.pylsp.setup {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = { enabled = false },
+              pyflakes = { enabled = false },
+              flake8 = { enabled = true, maxLineLength = 120 },
+              jedi_completion = { fuzzy = true },
+              pylsp_mypy = { enabled = true, live_mode = false }
+            }
+          }
+        }
+      }
 
       -- lspconfig.rust_analyzer.setup {}
-
-      -- latex on mac
-      lspconfig.texlab.setup {}
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           local opts = { buffer = ev.buf }
-          vim.keymap.set({ 'n', 'v' }, '<leader>n', vim.lsp.buf.rename, opts)
+          vim.keymap.set({ 'n', 'v' }, '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, opts)
-          vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', '<leader>p', vim.lsp.buf.implementation, opts)
-          vim.keymap.set('n', '<leader>bd', function()
-            vim.cmd([[
-            vsplit
-        ]])
+          vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leader>lf', function()
+            vim.lsp.buf.format({ async = true })
+          end, opts)
+          vim.keymap.set('n', '<leader>vd', function()
+            vim.cmd([[ vsplit ]])
             vim.lsp.buf.definition()
           end, opts)
         end,
