@@ -135,7 +135,6 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     dependencies = { 'junegunn/fzf' },
-
   },
   {
     'folke/todo-comments.nvim',
@@ -150,6 +149,13 @@ return {
           default = { "Identifier", "#de5d68" },
         },
       })
+    end
+  },
+  {
+    'RaafatTurki/hex.nvim',
+    config = function()
+      local hex = require('hex')
+      hex.setup()
     end
   }
 }
