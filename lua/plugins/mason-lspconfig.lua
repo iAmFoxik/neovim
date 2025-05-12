@@ -16,9 +16,9 @@ return {
         automatic_installation = true,
       })
 
-      masonlsp.setup_handlers {
-        ['rust_analyzer'] = function() end,
-      }
+      -- masonlsp.setup_handlers {
+      --   ['rust_analyzer'] = function() end,
+      -- }
 
       vim.diagnostic.config({
         virtual_text = true,

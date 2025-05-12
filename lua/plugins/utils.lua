@@ -135,7 +135,6 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     dependencies = { 'junegunn/fzf' },
-
   },
   {
     'folke/todo-comments.nvim',
