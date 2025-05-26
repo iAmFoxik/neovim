@@ -14,6 +14,16 @@ return {
   },
   {
     "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
+    priority = 1000,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    priority = 1000,
+  },
+  {
+    dir = "~/Codes/Lua/atomic.nvim",
+    name = "atomic",
+    lazy = false,
+    priority = 1000,
   }
 }
