@@ -153,6 +153,29 @@ return {
   },
   {
     'norcalli/nvim-colorizer.lua',
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    -- opts = {
+    --   highlight = { enable = true },
+    --   indent = { enable = true },
+    --   ensure_installed = {
+    --     "c",
+    --     "lua",
+    --     "markdown",
+    --     "python",
+    --     "rust"
+    --   }
+    -- }
+    -- config = function()
+    --   require('nvim-treesitter.configs').setup({
+    --     ensure_installed = { "c", "lua", "markdown", "python", "rust" },
+    --     auto_install = true,
+    --     highlight = {
+    --       enable = true,
+    --     }
+    --   })
+    -- end
   }
 
 }
