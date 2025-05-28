@@ -19,10 +19,25 @@ return {
   {
     "projekt0n/github-nvim-theme",
     priority = 1000,
+    -- config = function()
+    --   require('github-theme').setup()
+    --
+    --   vim.cmd('colorscheme github_light')
+    -- end
+  },
+  {
+    "cschlueter/vim-github",
+    priority = 1000,
+  },
+  {
+    dir = "~/Codes/Lua/atomic.nvim",
+    name = "atomic",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require('github-theme').setup()
+      require('atomic').setup()
 
-      vim.cmd('colorscheme github_light')
+      vim.cmd('colorscheme atomic')
     end
   }
 }

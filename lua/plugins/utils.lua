@@ -153,11 +153,23 @@ return {
   },
   {
     'norcalli/nvim-colorizer.lua',
+    keys = {
+      {
+        "<leader>c",
+        "<cmd>ColorizerToggle<CR>",
+        desc = "Colorizer toggle"
+      },
+    }
+
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
     -- opts = {
-    --   highlight = { enable = true },
+    --   highlight = {
+    --     enable = true,
+    --     additional_vim_regex_highlighting = false
+    --   },
     --   indent = { enable = true },
     --   ensure_installed = {
     --     "c",
@@ -167,15 +179,15 @@ return {
     --     "rust"
     --   }
     -- }
-    -- config = function()
-    --   require('nvim-treesitter.configs').setup({
-    --     ensure_installed = { "c", "lua", "markdown", "python", "rust" },
-    --     auto_install = true,
-    --     highlight = {
-    --       enable = true,
-    --     }
-    --   })
-    -- end
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = { "c", "lua", "markdown", "python", "rust" },
+        auto_install = true,
+        highlight = {
+          enable = true,
+        }
+      })
+    end
   }
 
 }
