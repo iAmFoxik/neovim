@@ -3,6 +3,7 @@ return {
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   {
     'yorik1984/newpaper.nvim',
+    priority = 1000
     -- config = function()
     --   require('newpaper').setup()
     -- end
@@ -30,14 +31,12 @@ return {
     priority = 1000,
   },
   {
-    dir = "~/Codes/Lua/atomic.nvim",
-    name = "atomic",
-    lazy = false,
+    "iAmFoxik/atomic.nvim",
     priority = 1000,
     config = function()
       require('atomic').setup()
 
-      vim.cmd('colorscheme atomic')
+      vim.cmd.colorscheme("atomic")
     end
   }
 }

@@ -3,3 +3,5 @@ require('config.lazy')
 require('base')
 require('keys')
 -- require('configs')
+
+vim.cmd('colorscheme atomic')
