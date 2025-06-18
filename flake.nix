@@ -4,15 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
-    home-manager.url = "github:nix-community/home-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
     { self, nixvim, flake-parts, home-manager, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ home-manager.flakeModules.home-manager ];
-
       systems = [
         "x86_64-linux"
       ];
@@ -42,21 +39,8 @@
             # Lets you run `nix run .` to start nixvim
             default = nvim;
           };
-
           
         };
 
-        flake = {
-            homeModules = let
-                defaultModules = [
-                    inputs.nixvim.homeModules.nixvim
-                    # self.nixvimModules.homeManager
-                ];
-            in {
-                nixvim = {
-                    imports = defaultModules;
-                };
-            };
-        };
     };
 }
