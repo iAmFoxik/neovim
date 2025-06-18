@@ -9,9 +9,9 @@
   };
 
   outputs =
-    { self, nixvim, flake-parts, ... }@inputs:
+    { self, nixvim, flake-parts, home-manager, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ inputs.home-manager.flakeModules.home-manager ];
+      imports = [ home-manager.flakeModules.home-manager ];
 
       systems = [
         "x86_64-linux"
@@ -47,9 +47,16 @@
         };
 
         flake = {
-            homeModules = {
-                nvim = import ./config self;
-                default = self.homeModules.nixvim;
+            homeModules = let
+                defaultModules = [
+                    inputs.nixvim.homeModules.nixvim
+                    self.nixvimModules.homeManager
+                ];
+                nixos = {
+                    imports = defaultModules;
+                };
+            in {
+                inherit nixos;
             };
         };
     };
