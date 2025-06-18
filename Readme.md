@@ -4,8 +4,9 @@ You can use this flake as an input:
 
 ```nix
 {
-    inputs = {
-        nixvim.url = "github:iAmFoxik/neovim/nixvim"
+    nixvim = {
+        url = "github:iAmFoxik/neovim/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
 }
 ```
