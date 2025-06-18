@@ -49,6 +49,7 @@
         flake = {
             homeModules = {
                 nvim = import ./config self;
+                default = self.homeModules.nixvim;
             };
         };
     };
