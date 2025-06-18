@@ -50,13 +50,12 @@
             homeModules = let
                 defaultModules = [
                     inputs.nixvim.homeModules.nixvim
-                    self.nixvimModules.homeManager
+                    # self.nixvimModules.homeManager
                 ];
-                nixos = {
+            in {
+                nixvim = {
                     imports = defaultModules;
                 };
-            in {
-                inherit nixos;
             };
         };
     };
