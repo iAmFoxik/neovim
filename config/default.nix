@@ -1,7 +1,7 @@
 {
   imports = [
     ./opts.nix
-    # ./keymaps.nix
-    # ./ui.nix
+    ./keymaps.nix
+    ./ui.nix
   ];
 }
