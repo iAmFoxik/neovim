@@ -1,5 +1,5 @@
 {
-   opts = {
+  opts = {
     # [[ Поиск ]]
     ignorecase = true;
     smartcase = true;
@@ -25,5 +25,8 @@
     so = 10;
     numberwidth = 2;
     undofile = true;
+
+    list = true;
+    listchars = "tab:|->,lead:·,space: ,trail:·,extends:→,precedes:←,nbsp:␣";
   };
 }

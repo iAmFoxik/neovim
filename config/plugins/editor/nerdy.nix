@@ -1,0 +1,3 @@
+{
+  plugins.nerdy.enable = true;
+}

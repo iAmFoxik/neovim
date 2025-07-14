@@ -9,9 +9,8 @@ let
       sha256 = "sha256-YhNxwrC9tlHQHP8ERYaZeSMmqXsZzI+uwLlXNBRRtZY=";
     };
   };
-
   newpaper = pkgs.vimUtils.buildVimPlugin {
-    name = "paper.nvim";
+    name = "newpaper";
     src = pkgs.fetchFromGitHub {
       owner = "yorik1984";
       repo = "newpaper.nvim";
@@ -22,7 +21,6 @@ let
 in
 {
   plugins = {
-    # bufferline.enable = true;
     web-devicons.enable = true;
   };
 
@@ -30,9 +28,8 @@ in
     atomic
     newpaper
   ];
-
   extraConfigLua = ''
     vim.opt.termguicolors = true
-    vim.cmd.colorscheme("newpaper")
+    vim.cmd.colorscheme("atomic")
   '';
 }
