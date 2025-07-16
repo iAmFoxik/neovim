@@ -1,7 +1,6 @@
 {
-  # Import all your configuration modules here
   imports = [
-    # ./bufferline.nix
+    ./commands.nix
     ./filetype.nix
     ./opts.nix
     ./diagnostics.nix
@@ -19,6 +18,7 @@
     # Editor
     ./plugins/editor/barbar.nix
     ./plugins/editor/colorizer.nix
+    ./plugins/editor/dressing.nix
     ./plugins/editor/editorconfig.nix
     # ./plugins/editor/indentmini.nix
     # ./plugins/editor/mini.nix

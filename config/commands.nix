@@ -1,0 +1,5 @@
+{
+  userCommands = {
+    Q = { command = "q!"; };
+  };
+}

@@ -9,4 +9,11 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      key = "<F9>";
+      action = "<CMD>OverseerRun<CR>";
+    }
+  ];
 }
