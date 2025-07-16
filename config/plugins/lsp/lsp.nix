@@ -80,9 +80,9 @@
           settings = {
             nil = {
               formatting = {
-                command = [ "nixpkgs-fmt" ];
+                command ="nixpkgs-fmt";
               };
-            };
+            }; 
           };
         };
         qmlls.enable = true;
