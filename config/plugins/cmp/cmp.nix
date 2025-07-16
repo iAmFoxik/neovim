@@ -60,7 +60,12 @@
         };
 
         window = {
-          completion.__raw = ''cmp.config.window.bordered()'';
+          completion.__raw = ''
+            cmp.config.window.bordered({
+              border = "bold";
+              winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
+            })
+          '';
           documentation.__raw = ''
             cmp.config.window.bordered({
               winhighlight = "Normal:Normal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None";

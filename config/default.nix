@@ -18,6 +18,7 @@
 
     # Editor
     ./plugins/editor/barbar.nix
+    ./plugins/editor/colorizer.nix
     ./plugins/editor/editorconfig.nix
     # ./plugins/editor/indentmini.nix
     # ./plugins/editor/mini.nix
