@@ -1,5 +1,18 @@
 {
-  plugins.colorizer.enable = true;
+  plugins.colorizer = {
+    enable = true;
+    settings = {
+      user_commands = [
+        "ColorizerToggle"
+        "ColorizerReloadAllBuffers"
+      ];
+      user_default_options = {
+        mode = "virtualtext";
+        names = false;
+        virtualtext = "■ ";
+      };
+    };
+  };
 
   keymaps = [
     {
