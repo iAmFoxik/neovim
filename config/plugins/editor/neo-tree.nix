@@ -2,6 +2,7 @@
   plugins.neo-tree = {
     enable = true;
 
+    autoCleanAfterSessionRestore = true;
     closeIfLastWindow = true;
     window = {
       width = 30;

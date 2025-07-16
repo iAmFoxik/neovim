@@ -1,4 +1,3 @@
 {
-  filetype = {
-  };
+  filetype = { };
 }

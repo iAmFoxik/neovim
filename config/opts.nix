@@ -30,3 +30,4 @@
     listchars = "tab:|->,lead:·,space: ,trail:·,extends:→,precedes:←,nbsp:␣";
   };
 }
+
