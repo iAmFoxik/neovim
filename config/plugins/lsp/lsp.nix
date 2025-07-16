@@ -75,16 +75,12 @@
             };
           };
         };
+
         nil_ls = {
           enable = true;
-          settings = {
-            nil = {
-              formatting = {
-                command ="nixpkgs-fmt";
-              };
-            }; 
-          };
+            settings.formatting.command = [ "nixpkgs-fmt" ];
         };
+
         qmlls.enable = true;
         clangd.enable = true;
         hls = {
