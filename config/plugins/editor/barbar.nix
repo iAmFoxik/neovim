@@ -51,7 +51,7 @@
     #   action = "<CMD>BufferMoveNext<CR>";
     # }
     {
-      key = "<C-w>";
+      key = "<C-x>";
       action = "<CMD>BufferClose<CR>";
     }
     {

@@ -5,7 +5,7 @@
 
   keymaps = [
     {
-      key = "<leader>lg";
+      key = "<leader>g";
       action = "<CMD>LazyGit<CR>";
     }
   ];

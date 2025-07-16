@@ -31,13 +31,5 @@
         desc = "Explorer";
       };
     }
-    {
-      mode = "n";
-      key = "<leader>g";
-      action = "<CMD>Neotree float git_status<CR>";
-      options = {
-        desc = "Explorer";
-      };
-    }
   ];
 }
