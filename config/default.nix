@@ -27,6 +27,7 @@
     ./plugins/editor/overseer.nix
     ./plugins/editor/surround.nix
     ./plugins/editor/telescope.nix
+    ./plugins/editor/toggleterm.nix
     ./plugins/editor/treesitter.nix
 
     # git
