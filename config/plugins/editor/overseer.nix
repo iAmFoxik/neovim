@@ -3,10 +3,9 @@
     enable = true;
 
     settings = {
-      strategy = {
-        direction = "float";
-        auto_scroll = true;
-      };
+      strategy = "terminal";
+      direction = "float";
+      auto_scroll = true;
     };
   };
 
