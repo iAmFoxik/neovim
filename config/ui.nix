@@ -6,7 +6,7 @@ let
       owner = "iAmFoxik";
       repo = "atomic.nvim";
       rev = "master";
-      sha256 = "sha256-YhNxwrC9tlHQHP8ERYaZeSMmqXsZzI+uwLlXNBRRtZY=";
+      sha256 = "sha256-OnIqp2OYcZiEnpX1u/QF3f9AHGos6B8m2y3qHREVLKA=";
     };
   };
   newpaper = pkgs.vimUtils.buildVimPlugin {
