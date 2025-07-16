@@ -3,9 +3,7 @@
     enable = true;
 
     settings = {
-      strategy = "terminal";
-      direction = "float";
-      auto_scroll = true;
+      strategy = "toggleterm";
     };
   };
 
