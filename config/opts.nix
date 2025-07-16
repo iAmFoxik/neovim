@@ -25,6 +25,7 @@
     so = 10;
     numberwidth = 2;
     undofile = true;
+    shortmess = "ltToOCFW";
 
     list = true;
     listchars = "tab:|->,lead:·,space: ,trail:·,extends:→,precedes:←,nbsp:␣";
