@@ -117,14 +117,16 @@
       key = "<leader>cf";
       action = "<CMD>lua require('crates').show_features_popup()<CR>";
     }
-    # { "<leader>cd", function() require('crates').show_dependencies_popup() end, desc = 'Show Dependencies',  buffer = true },
-    # { "<leader>cu", function() require('crates').update_crate() end,            desc = 'Update Crate',       buffer = true },
-    # { "<leader>ca", function() require('crates').update_all_crates() end,       desc = 'Update All Crates',  buffer = true },
-    # { "<leader>cU", function() require('crates').upgrade_crate() end,           desc = 'Upgrade Crate',      buffer = true },
-    # { "<leader>cA" function() require('crates').upgrade_all_crates() end,      desc = 'Upgrade All Crates', buffer = true },
-    # { "<leader>cH", function() require('crates').open_homepage() end,           desc = 'Open Homepage',      buffer = true },
-    # { "<leader>cR", function() require('crates').open_repository() end,         desc = 'Open Repository',    buffer = true },
-    # { "<leader>cD", function() require('crates').open_documentation() end,      desc = 'Open Documentation', buffer = true },
-    # { "<leader>cC", function() require('crates').open_crates_io() end,          desc = 'Open Crates.io',     buffer = true },
+    {
+      mode = "n";
+      key = "gK";
+      action = ''
+        <CMD>lua
+          local cfg = vim.diagnostic.config()
+          local new = not cfg.virtual_lines
+          vim.diagnostic.config({ virtual_lines = new });
+        <CR>
+      '';
+    }
   ];
 }

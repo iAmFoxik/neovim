@@ -18,9 +18,10 @@
     # Editor
     ./plugins/editor/barbar.nix
     ./plugins/editor/colorizer.nix
+    ./plugins/editor/diagnostics.nix
     ./plugins/editor/dressing.nix
     ./plugins/editor/editorconfig.nix
-    # ./plugins/editor/indentmini.nix
+    ./plugins/editor/guess-indent.nix
     # ./plugins/editor/mini.nix
     ./plugins/editor/neo-tree.nix
     ./plugins/editor/nerdy.nix

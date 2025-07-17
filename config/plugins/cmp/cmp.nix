@@ -71,14 +71,6 @@
               winhighlight = "Normal:Normal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None";
             })
           '';
-          # completion = {
-          #   # border = "Normal:Normal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None";
-          #   winhighlight = "Normal:Normal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None";
-          # };
-          # documentation = {
-          #   # border = "Normal:Pmenu,FloatBorder:pmenu";
-          #   winhighlight = "Normal:Pmenu,FloatBorder:pmenu";
-          # };
         };
       };
     };
