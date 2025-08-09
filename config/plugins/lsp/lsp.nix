@@ -103,7 +103,7 @@
             "using Pkg; Pkg.activate(\"@LanguageServer\"); using LanguageServer, SymbolServer; runserver()"
           ];
           package = null;
-          filetypes = [ "jl" ];
+          filetypes = [ "julia" ];
           autostart = true;
           settings.single_file_support = true;
         };
