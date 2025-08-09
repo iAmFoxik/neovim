@@ -16,20 +16,20 @@
             buffer_number = false;
           };
         };
-        gitsigns = {
-          added = {
-            enabled = true;
-            icon = "󰍌";
-          };
-          changed = {
-            enabled = true;
-            icon = "󰚕";
-          };
-          deleted = {
-            enabled = true;
-            icon = "󰍚";
-          };
-        };
+        # gitsigns = {
+        #   added = {
+        #     enabled = true;
+        #     icon = "󰍌";
+        #   };
+        #   changed = {
+        #     enabled = true;
+        #     icon = "󰚕";
+        #   };
+        #   deleted = {
+        #     enabled = true;
+        #     icon = "󰍚";
+        #   };
+        # };
       };
     };
   };

@@ -1,0 +1,10 @@
+root = true
+
+[*.{nix,lua,json,yaml,yml,md}]
+indent_style = space
+indent_size  = 2
+
+[*.{rs,py,c,cpp}]
+indent_style = space
+indent_size  = 4
+

@@ -20,7 +20,6 @@
             keywordLength = 3;
             priority = 850;
           }
-          { name = "cmdline"; }
           {
             name = "path";
             keywordLength = 3;
@@ -34,6 +33,7 @@
             name = "calc";
           }
         ];
+
 
         formatting = {
           fields = [
@@ -73,14 +73,17 @@
           '';
         };
       };
+
     };
 
+
     cmp-buffer.enable = true;
-    cmp-cmdline.enable = true;
     cmp_luasnip.enable = true;
     cmp-path.enable = true;
     cmp-vsnip.enable = true;
     cmp-calc.enable = true;
+
+
     lspkind = {
       enable = true;
       mode = "symbol";
@@ -93,6 +96,7 @@
           calc = "[CLC]";
           path = "[PTH]";
           luasnip = "[LSN]";
+          vsnip = "[CLS]";
         };
       };
     };

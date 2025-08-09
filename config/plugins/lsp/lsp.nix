@@ -81,11 +81,31 @@
           settings.formatting.command = [ "nixpkgs-fmt" ];
         };
 
-        qmlls.enable = true;
+        qmlls = {
+          enable = true;
+          settings = {
+            cmd = [ "qmlls" "-E" ];
+          };
+        };
         clangd.enable = true;
         hls = {
           enable = true;
           installGhc = false;
+        };
+
+        julials = {
+          enable = true;
+          cmd = [
+            "julia"
+            "--startup-file=no"
+            "--history-file=no"
+            "-e"
+            "using Pkg; Pkg.activate(\"@LanguageServer\"); using LanguageServer, SymbolServer; runserver()"
+          ];
+          package = null;
+          filetypes = [ "jl" ];
+          autostart = true;
+          settings.single_file_support = true;
         };
       };
 

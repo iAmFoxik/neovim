@@ -8,7 +8,6 @@
         "bash"
         "c"
         "diff"
-
         "lua"
         "luadoc"
         "markdown"

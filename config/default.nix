@@ -22,6 +22,7 @@
     ./plugins/editor/dressing.nix
     ./plugins/editor/editorconfig.nix
     ./plugins/editor/guess-indent.nix
+    ./plugins/editor/lualine.nix
     # ./plugins/editor/mini.nix
     ./plugins/editor/neo-tree.nix
     ./plugins/editor/nerdy.nix
