@@ -3,10 +3,15 @@ return {
   config = function()
     local lualine = require("lualine")
 
+    local function icon_filename()
+      return [[filetype, filename]]
+    end
+
     lualine.setup({
       options = {
         theme = "auto",
         section_separators = { left = "", right = "" },
+        component_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -19,10 +24,17 @@ return {
             icons_enabled = true,
           }
         },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename" },
-        lualine_x = { "lsp_status", "filetype" },
-        lualine_y = { "" },
+        lualine_b = {
+          { "filetype", icon_only = true, separator = "",                   padding = { left = 1, right = 0 } },
+          { "filename", separator = "",   padding = { left = 0, right = 1 } },
+          -- icon_filename
+        },
+        lualine_c = { "branch", {
+          "diff",
+          symbols = { added = " ", modified = " ", removed = " " }
+        } },
+        lualine_x = { "diagnostics" },
+        lualine_y = { "lsp_status", "filetype" },
         lualine_z = { "location" },
       },
       extensions = { "neo-tree" },

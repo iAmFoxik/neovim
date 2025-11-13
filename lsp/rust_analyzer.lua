@@ -17,6 +17,9 @@ return {
         -- implicitDrops = { enable = true }, -- показывать drop
 
       },
+      diagnostics = {
+        enable = true,
+      },
       -- hover = {
       --   action = { enable = true },
       -- },
