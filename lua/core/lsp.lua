@@ -28,19 +28,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(false, opts)
       vim.lsp.inlay_hint.enable(true, opts)
     end
-
-    -- opts.desc = "Show LSP references"
-    -- keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
   end,
 })
-
--- vim.api.nvim_create_autocmd("BufEnter", {
---   callback = function(ev)
---     if vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }) and vim.lsp.inlay_hint then
---       vim.lsp.inlay_hint.enable(true)
---     end
---   end,
--- })
 
 local severity = vim.diagnostic.severity
 

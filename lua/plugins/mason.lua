@@ -4,7 +4,8 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "rust_analyzer"
+        "rust_analyzer",
+        "julials",
       },
       handlers = {
         function(server_name)
