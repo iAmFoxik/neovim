@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "DaikyXendo/nvim-web-devicons",
+    "nvim-mini/mini.icons",
   },
   cmd = "Telescope",
   config = function()

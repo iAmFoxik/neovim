@@ -1,6 +1,8 @@
 return {
   "folke/trouble.nvim",
-  dependencies = { "DaikyXendo/nvim-web-devicons" },
+  dependencies = {
+    "nvim-mini/mini.icons",
+  },
   opts = {
     use_diagnostic_signs = true,
     mode = "workspace_diagnostics",

@@ -4,7 +4,7 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "DaikyXendo/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons"
     },
 
     cmd = "Neotree",

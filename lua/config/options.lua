@@ -1,7 +1,7 @@
 local opt = vim.opt
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.mapleader = ";"
+vim.g.maplocalleader = " "
 
 opt.ignorecase = true  -- Игнорировать регистр при поиске
 opt.infercase = true   -- При автодополнение учитывется регистр вводимого текста
@@ -35,3 +35,4 @@ opt.virtualedit =
 "block"                                                 -- в режиме "block" позволяет размещать курсор за пределами реального текста при блочном выделении
 opt.writebackup = false                                 -- Отключает создание резервной копии перед перезаписью файла
 opt.swapfile = false                                    -- Отключает создание swap-файла
+opt.undofile = true                                     -- Сохранять изменения даже после закрытия файла

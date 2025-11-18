@@ -1,15 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  -- dependencies = {
-  --   "SmiteshP/nvim-navic"
-  -- },
   config = function()
     local lualine = require("lualine")
-
-    local function icon_filename()
-      return [[filetype, filename]]
-    end
-    -- local navic = require("nvim-navic")
 
     lualine.setup({
       options = {
@@ -40,17 +32,13 @@ return {
             separator = "",
             padding = { left = 0, right = 1 }
           },
-          -- icon_filename
         },
-        lualine_c = { "branch", {
-          "diff",
-          symbols = { added = " ", modified = " ", removed = " " }
-        },
+        lualine_c = {
+          "branch",
           {
-            "navic",
-            color_correction = "dynamic",
-            navic_opts = nil,
-          },
+            "diff",
+            symbols = { added = " ", modified = " ", removed = " " }
+          }
         },
         lualine_x = { "diagnostics" },
         lualine_y = { "lsp_status", "filetype" },
