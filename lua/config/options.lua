@@ -36,3 +36,5 @@ opt.virtualedit =
 opt.writebackup = false                                 -- Отключает создание резервной копии перед перезаписью файла
 opt.swapfile = false                                    -- Отключает создание swap-файла
 opt.undofile = true                                     -- Сохранять изменения даже после закрытия файла
+opt.list = true
+opt.listchars = { space = "·", tab = "↦ ", trail = "·", nbsp = "␣" }
