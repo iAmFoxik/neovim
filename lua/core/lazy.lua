@@ -17,10 +17,10 @@ require("lazy").setup({
   },
   checker = {
     enabled = true,
-    notify = true,
+    notify = false,
   },
   change_detection = {
     enabled = true,
-    notify = true,
+    notify = false,
   },
 })

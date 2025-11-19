@@ -32,8 +32,9 @@
               lua vim.opt.runtimepath:append("${nvimConfig}")
               lua << EOF
               require("config.options")
-              require("core.lsp")
+              require("config.autocmds")
               require("config.keymaps")
+              require("core.lsp")
               require("core.lazy")
               EOF
               lua vim.opt.runtimepath:append("${nvimConfig}")

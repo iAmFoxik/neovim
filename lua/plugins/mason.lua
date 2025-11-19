@@ -6,6 +6,7 @@ return {
         "lua_ls",
         "rust_analyzer",
         "julials",
+        "ruff",
       },
       handlers = {
         function(server_name)
