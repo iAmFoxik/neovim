@@ -3,6 +3,7 @@ vim.lsp.enable({
   "ruff",
   "lua_ls",
   "julials",
+  "pyright",
 })
 
 vim.diagnostic.config({
@@ -10,7 +11,7 @@ vim.diagnostic.config({
   virtual_lines = {
     current_line = true
   },
-  underline = true,
+  -- underline = true,
   update_in_insert = true,
   signs = {
     text = {

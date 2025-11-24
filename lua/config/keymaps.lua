@@ -14,3 +14,19 @@ map("n", "<leader>w", cmd("w"), "Save")
 map("n", "<leader>q", cmd("exit"), "Exit")
 map("n", "<leader>b", cmd("Bufferin"), "Open Bufferin")
 map("n", "<leader>o", cmd("FzfLua files"), "Open BufferBufferinin")
+map("i", "jj", "<esc>", "Escape")
+
+map("n", "<leader>h", "<C-w>h", "Go to left")
+map("n", "<leader>j", "<C-w>j", "Go to down")
+map("n", "<leader>k", "<C-w>k", "Go to up")
+map("n", "<leader>l", "<C-w>l", "Go to right")
+map("n", "<leader>H", "<C-w>>", "Resize to left")
+map("n", "<leader>J", "<C-w>-", "Resize to down")
+map("n", "<leader>K", "<C-w>+", "Resize to up")
+map("n", "<leader>L", "<C-w><", "Resize to right")
+
+map("n", "U", "<C-r>", "Redo")
+
+-- Create command
+
+vim.api.nvim_create_user_command("Q", "q!", {})
