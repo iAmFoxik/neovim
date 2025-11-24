@@ -17,8 +17,11 @@ return {
         disable = { "missing-fields" },
         globals = {
           "vim",
-          "Snacks",
+          "require",
         },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
       },
       hint = {
         enable = true,

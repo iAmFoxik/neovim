@@ -14,6 +14,8 @@ map("n", "<leader>w", cmd("w"), "Save")
 map("n", "<leader>q", cmd("exit"), "Exit")
 map("n", "<leader>b", cmd("Bufferin"), "Open Bufferin")
 map("n", "<leader>o", cmd("FzfLua files"), "Open BufferBufferinin")
+map("n", "<leader>ff", cmd("FzfLua files"), "Open BufferBufferinin")
+map("n", "<leader>fg", cmd("FzfLua grep"), "Open BufferBufferinin")
 map("i", "jj", "<esc>", "Escape")
 
 map("n", "<leader>h", "<C-w>h", "Go to left")

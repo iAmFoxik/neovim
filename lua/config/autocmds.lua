@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", {}),
   callback = function(event)
     local function map(mode, lhs, rhs, desc)
-      vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = "LSP: " .. desc, silent = true })
+      vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = "LSP: " .. desc, silent = true })
     end
 
     map("n", "gd", vim.lsp.buf.definition, "Go to definition")
@@ -21,6 +21,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
     if not client then return end
+
+    -- neovim 12
+    -- if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, event.buf) then
+    --   vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    -- end
 
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) and vim.lsp.inlay_hint then
       vim.lsp.inlay_hint.enable(false, { buffer = event.buf, silent = true })
