@@ -18,6 +18,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
     end, "[T]oggle Inlay [H]int")
 
+    map("n", "[d", function()
+      vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+    end, "Go to diagnostic prev")
+    map("n", "]d", function()
+      vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+    end, "Go to diagnostic next")
+
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
     if not client then return end
