@@ -8,6 +8,8 @@ opt.infercase = true -- При автодополнение учитывется
 opt.smartcase = true -- Не игнорировать регистр, если есть символы в верхнем регистр
 opt.showmatch = true -- Подсвечивать найденные текстовые объекты
 opt.showtabline = 2 -- 0=никогда, 1=если >1, 2=всегда
+opt.tabline = "%!v:lua.require('config.tabline').render()"
+
 -- [[Tab]]
 opt.shiftwidth = 4 -- Установка количество пробелова при сдвиге
 opt.tabstop = 4 -- 1 таб == 4 пробела

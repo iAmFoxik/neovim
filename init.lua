@@ -1,6 +1,6 @@
 require("config.options")
 require("config.autocmds")
 require("config.keymaps")
-require("config.tabline")
+-- require("config.tabline")
 require("core.lsp")
 require("core.lazy")
