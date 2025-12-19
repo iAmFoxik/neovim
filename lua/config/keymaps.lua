@@ -6,6 +6,8 @@ local function cmd(command)
   return table.concat({ "<CMD>", command, "<CR>" })
 end
 
+-- local snacks = require("Snacks")
+
 map("t", "<esc>", "<C-\\><C-n>", "Close terminal")
 map("n", ",,", cmd("nohlsearch"), "Disable search")
 map("n", "<leader>e", cmd("Neotree toggle"), "Neotree toggle")
@@ -13,9 +15,9 @@ map("n", "<leader>d", cmd("Neotree toggle document_symbols"), "Neotree symbol")
 map("n", "<leader>w", cmd("w"), "Save")
 map("n", "<leader>q", cmd("exit"), "Exit")
 map("n", "<leader>b", cmd("Bufferin"), "Open Bufferin")
-map("n", "<leader>o", cmd("FzfLua files"), "Open BufferBufferinin")
-map("n", "<leader>ff", cmd("FzfLua files"), "Open BufferBufferinin")
-map("n", "<leader>fg", cmd("FzfLua grep"), "Open BufferBufferinin")
+-- map("n", "<leader>o", snacks.picker.files(), "Open BufferBufferinin")
+-- map("n", "<leader>ff", cmd("FzfLua files"), "Open BufferBufferinin")
+-- map("n", "<leader>fg", cmd("FzfLua grep"), "Open BufferBufferinin")
 map("i", "jj", "<esc>", "Escape")
 
 map("n", "<leader>h", "<C-w>h", "Go to left")
@@ -29,6 +31,10 @@ map("n", "<leader>L", "<C-w><", "Resize to right")
 
 map("n", "U", "<C-r>", "Redo")
 
+-- just
+map("n", "<C-b>", cmd("JustSelect"), "Just build the project")
+
 -- Create command
+--
 
 vim.api.nvim_create_user_command("Q", "q!", {})

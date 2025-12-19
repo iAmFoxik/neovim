@@ -12,13 +12,14 @@ return {
           "python",
           "regex",
           "vim",
-          "json"
+          "json",
+          "just",
         },
         auto_install = true,
         highlight = {
           enable = true,
-        }
+        },
       })
-    end
-  }
+    end,
+  },
 }
