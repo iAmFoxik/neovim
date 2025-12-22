@@ -36,13 +36,16 @@ M.config = {
   },
 }
 
-local function tab_buf_name(tabpage)
+local function tab_buf_name(tabpage, no_name)
+  if not vim.api.nvim_tabpage_is_valid(tabpage) then
+    return no_name
+  end
   local win = vim.api.nvim_tabpage_get_win(tabpage)
   local buf = vim.api.nvim_win_get_buf(win)
   local name = vim.api.nvim_buf_get_name(buf)
 
   if name == "" then
-    return "[No Name]"
+    return no_name
   end
 
   return vim.fn.fnamemodify(name, ":t")
@@ -140,12 +143,12 @@ local function build_segments(ctx, cfg)
           table.insert(segs, number_to_icon(ctx.index))
         end
       elseif item == "label" then
-        table.insert(segs, tab_buf_name(ctx.index))
+        table.insert(segs, tab_buf_name(ctx.index, cfg.label.no_name))
       elseif item == "modified" then
         if
           cfg.modified.enabled
           and ctx.modified
-          and tab_buf_name(ctx.index) ~= cfg.label.no_name
+          and tab_buf_name(ctx.index, cfg.label.no_name) ~= cfg.label.no_name
         then
           table.insert(segs, "%#" .. hl.mod .. "#")
           table.insert(segs, cfg.modified.text)
@@ -178,14 +181,14 @@ function M.render()
 
   local s = ""
 
-  for idx, tab in ipairs(tabs) do
+  for _, tab in ipairs(tabs) do
     local ctx = {
-      index = idx,
+      index = tab,
       current = (tab == current),
       modified = tab_has_modified_buffers(tab),
     }
 
-    s = build_segments(ctx, cfg)
+    s = s .. build_segments(ctx, cfg)
   end
 
   s = s .. "%#TabLineFill#%="
