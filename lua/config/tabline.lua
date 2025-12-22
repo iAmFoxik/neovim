@@ -1,6 +1,42 @@
 local M = {}
 
-local function tab_level(tabpage)
+M.config = {
+  sep = {
+    enabled = true,
+    start = "",
+    finish = "",
+  },
+
+  number = {
+    enabled = true,
+  },
+  modified = {
+    enabled = true,
+    text = "✱",
+  },
+
+  label = {
+    no_name = "[No Name]",
+  },
+
+  layout = {
+    " ",
+    "number",
+    " ",
+    "label",
+    "modified",
+    " ",
+  },
+
+  hl = {
+    active = "RabLine",
+    inactive = "RabLineInactive",
+    modified_active = "RabLineModified",
+    modified_inactive = "RabLineModifiedInactive",
+  },
+}
+
+local function tab_buf_name(tabpage)
   local win = vim.api.nvim_tabpage_get_win(tabpage)
   local buf = vim.api.nvim_win_get_buf(win)
   local name = vim.api.nvim_buf_get_name(buf)
@@ -35,67 +71,121 @@ local digits = {
   [9] = "󰎼",
 }
 
-local function digit_icon(n)
+local function number_to_icon(n)
   return digits[n] or tostring(n)
 end
 
-local theme = vim.g.colors_name
-local palette = require("github-theme.palette").load(theme)
-local spec = require("github-theme.spec").load(theme)
-print(vim.inspect(palette.scale))
+local function setup_highlights()
+  local ok_palette, palette_mod = pcall(require, "github-theme.palette")
+  local ok_spec, spec_mod = pcall(require, "github-theme.spec")
 
-vim.api.nvim_set_hl(0, "RabLine", {
-  fg = spec.bg2,
-  bg = palette.accent.fg,
-})
+  if not (ok_palette and ok_spec) then
+    return
+  end
 
-vim.api.nvim_set_hl(0, "RabLineRev", {
-  fg = palette.accent.fg,
-  bg = spec.bg2,
-})
+  local theme = vim.g.colors_name
 
-vim.api.nvim_set_hl(0, "RabLineInactive", {
-  fg = spec.bg0,
-  bg = palette.scale.blue[2],
-})
+  if type(theme) ~= "string" or theme == "" then
+    return
+  end
 
-vim.api.nvim_set_hl(0, "RabLineInactiveRev", {
-  bg = spec.bg0,
-  fg = palette.scale.blue[2],
-})
+  local palette = palette_mod.load(theme)
+  local spec = spec_mod.load(theme)
 
-vim.api.nvim_set_hl(0, "RabLineEndSep", {
-  fg = palette.accent.fg,
-  bg = spec.bg2,
-})
+  local hl = vim.api.nvim_get_hl(0, { name = "TabLineFill", link = false })
 
-vim.api.nvim_set_hl(0, "RabLineEndSepRev", {
-  fg = palette.scale.blue[2],
-  bg = spec.bg2,
+  vim.api.nvim_set_hl(0, "RabLine", {
+    fg = hl.bg,
+    bg = palette.accent.fg,
+  })
+
+  vim.api.nvim_set_hl(0, "RabLineInactive", {
+    fg = hl.bg,
+    bg = palette.scale.blue[2],
+  })
+
+  vim.api.nvim_set_hl(0, "RabLineModified", {
+    fg = palette.scale.orange[4],
+    bg = palette.accent.fg,
+  })
+
+  vim.api.nvim_set_hl(0, "RabLineModifiedInactive", {
+    fg = palette.scale.orange[4],
+    bg = palette.scale.blue[2],
+  })
+end
+
+local function build_segments(ctx, cfg)
+  local segs = {}
+  local hl = {}
+
+  if ctx.current then
+    hl.text = cfg.hl.active
+    hl.mod = cfg.hl.modified_active
+  else
+    hl.text = cfg.hl.inactive
+    hl.mod = cfg.hl.modified_inactive
+  end
+
+  table.insert(segs, "%#" .. hl.text .. "#")
+
+  if cfg.sep.enabled then
+    table.insert(segs, cfg.sep.start)
+  end
+
+  for _, item in ipairs(cfg.layout) do
+    if type(item) == "string" then
+      if item == "number" then
+        if cfg.number.enabled then
+          table.insert(segs, number_to_icon(ctx.index))
+        end
+      elseif item == "label" then
+        table.insert(segs, tab_buf_name(ctx.index))
+      elseif item == "modified" then
+        if
+          cfg.modified.enabled
+          and ctx.modified
+          and tab_buf_name(ctx.index) ~= cfg.label.no_name
+        then
+          table.insert(segs, "%#" .. hl.mod .. "#")
+          table.insert(segs, cfg.modified.text)
+          table.insert(segs, "%#" .. hl.text .. "#")
+        end
+      else
+        table.insert(segs, item)
+      end
+    end
+  end
+
+  if cfg.sep.enabled then
+    table.insert(segs, cfg.sep.finish)
+  end
+
+  return table.concat(segs)
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = setup_highlights,
 })
+vim.schedule(setup_highlights)
 
 function M.render()
-  local s = ""
+  local cfg = M.config
   local tabs = vim.api.nvim_list_tabpages()
   local current = vim.api.nvim_get_current_tabpage()
 
+  local out = {}
+
+  local s = ""
+
   for idx, tab in ipairs(tabs) do
-    local is_current = (tab == current)
+    local ctx = {
+      index = idx,
+      current = (tab == current),
+      modified = tab_has_modified_buffers(tab),
+    }
 
-    local modified = tab_has_modified_buffers(tab)
-    local mod_mark = modified and " *" or ""
-
-    local sep = ""
-    local end_sep = (is_current and "%#RabLineEndSep#" or "%#RabLineEndSepRev#")
-      .. sep
-
-    s = s .. (is_current and "%#RabLine#" or "%#RabLineInactive#")
-    s = s .. sep
-
-    local label =
-      string.format(" %s %s%s ", digit_icon(idx), tab_level(tab), mod_mark)
-
-    s = s .. "%" .. idx .. "T" .. label .. end_sep .. "%T"
+    s = build_segments(ctx, cfg)
   end
 
   s = s .. "%#TabLineFill#%="
