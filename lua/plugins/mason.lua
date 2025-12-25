@@ -10,25 +10,8 @@ return {
       },
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup {}
+          require("lspconfig")[server_name].setup({})
         end,
-        ['rust_analyzer'] = function()
-          require('lspconfig').rust_analyzer.setup {
-            settings = {
-              cargo = {
-                allFeatures = true,
-              },
-              checkOnSave = {
-                enable = true,
-                command = "check",
-              },
-              inlayHints = {
-                typeHints = { enable = true },
-                parameterHints = { enable = true },
-              },
-            },
-          }
-        end
       },
     },
     dependencies = {
@@ -39,12 +22,12 @@ return {
             icons = {
               package_installed = "✓",
               package_pending = "➜",
-              package_uninstalled = "✗"
-            }
-          }
+              package_uninstalled = "✗",
+            },
+          },
         },
       },
       "neovim/nvim-lspconfig",
-    }
+    },
   },
 }

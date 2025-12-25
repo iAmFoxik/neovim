@@ -11,9 +11,9 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    { "L3MON4D3/LuaSnip", keys = {} }
+    { "L3MON4D3/LuaSnip", keys = {} },
   },
-  build = 'cargo build --release',
+  build = "cargo build --release",
   lazy = false,
   version = "1.*",
   opts = {
@@ -32,7 +32,7 @@ return {
         snippets = {
           opts = {
             friendly_snippets = true,
-          }
+          },
         },
         lazydev = {
           name = "LazyDev",
@@ -42,12 +42,12 @@ return {
       },
     },
     keymap = {
-      ['<CR>'] = { "accept", "fallback" },
-      ['<C-d>'] = { "show_documentation", "hide_documentation" },
-      ['<C-k>'] = { "scroll_documentation_up", "fallback" },
-      ['<C-j>'] = { "scroll_documentation_down", "fallback" },
-      ['<Tab>'] = { "select_next", "fallback" },
-      ['<S-Tab>'] = { "select_prev", "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
+      ["<C-d>"] = { "show_documentation", "hide_documentation" },
+      ["<C-k>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-j>"] = { "scroll_documentation_down", "fallback" },
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
     },
     cmdline = {
       enabled = false,
@@ -63,10 +63,10 @@ return {
           treesitter = { "lsp" },
           columns = {
             { "kind_icon" },
-            { "label",    "label_description", gap = 1 },
+            { "label", "label_description", gap = 1 },
             { "kind" },
-          }
-        }
+          },
+        },
       },
       documentation = {
         window = {
@@ -78,6 +78,6 @@ return {
         auto_show_delay_ms = 500,
       },
       ghost_text = { enabled = true },
-    }
-  }
+    },
+  },
 }

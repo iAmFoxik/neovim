@@ -6,14 +6,27 @@ vim.lsp.enable({
   "pyright",
 })
 
+vim.lsp.config("*", {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      },
+    },
+  },
+  root_markers = { ".git" },
+})
+
 vim.diagnostic.config({
   virtual_text = false,
+  -- virtual_lines = false,
   virtual_lines = {
-    current_line = true
+    current_line = true,
   },
-  -- underline = true,
+  underline = false,
   update_in_insert = true,
   severity_sort = true,
+
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = " ",

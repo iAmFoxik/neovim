@@ -40,3 +40,4 @@ opt.swapfile = false -- Отключает создание swap-файла
 opt.undofile = true -- Сохранять изменения даже после закрытия файла
 opt.list = true
 opt.listchars = { space = "·", tab = "↦ ", trail = "·", nbsp = "␣" }
+opt.winborder = "rounded"

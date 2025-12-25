@@ -4,7 +4,7 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
 
     cmd = "Neotree",
@@ -19,9 +19,9 @@ return {
       },
       default_component_configs = {
         indent = {
-          padding = 0
+          padding = 0,
         },
-      }
+      },
     },
-  }
+  },
 }

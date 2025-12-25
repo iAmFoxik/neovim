@@ -1,6 +1,6 @@
 return {
   settings = {
-    ['rust-analyzer'] = {
+    ["rust-analyzer"] = {
       cargo = {
         allFeatures = true,
         buildScripts = { enable = true },
@@ -15,7 +15,6 @@ return {
         chainingHints = { enable = true },
         closeBraceHints = { enable = true },
         -- implicitDrops = { enable = true }, -- показывать drop
-
       },
       diagnostics = {
         enable = true,
@@ -33,6 +32,6 @@ return {
       procMacro = {
         enable = true,
       },
-    }
-  }
+    },
+  },
 }

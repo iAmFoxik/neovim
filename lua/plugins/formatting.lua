@@ -25,5 +25,5 @@ return {
         async = false,
       })
     end, { desc = "Format file or range (in visual mode)" })
-  end
+  end,
 }

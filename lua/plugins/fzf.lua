@@ -8,6 +8,6 @@ return {
     winbar = false,
     files = {
       file_icons = "mini",
-    }
-  }
+    },
+  },
 }
