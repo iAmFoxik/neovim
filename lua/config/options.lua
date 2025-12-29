@@ -9,6 +9,8 @@ opt.smartcase = true -- Не игнорировать регистр, если �
 opt.showmatch = true -- Подсвечивать найденные текстовые объекты
 opt.showtabline = 2 -- 0=никогда, 1=если >1, 2=всегда
 opt.tabline = "%!v:lua.require('config.tabline').render()"
+opt.statuscolumn =
+  "%s %{v:virtnum<0?repeat(' ', strlen(line('$'))):printf('%*d',strlen(line('$')),v:lnum)}%#LineNrSeparator#│%*"
 
 -- [[Tab]]
 opt.shiftwidth = 4 -- Установка количество пробелова при сдвиге
