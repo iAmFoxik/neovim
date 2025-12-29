@@ -88,17 +88,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end, "[T]oggle Inlay [H]int")
     end
 
-    if
-      client:supports_method(
-        vim.lsp.protocol.Methods.textDocument_semanticTokens_full
-      )
-    then
-      local ok, semantic_tokens = pcall(require, "vim.lsp.semantic_tokens")
-      vim.print(semantic_tokens)
-      -- if ok then
-      --   vim.b.semantic_tokens_enabled = true
-      -- end
-    end
+    -- if
+    --   client:supports_method(
+    --     vim.lsp.protocol.Methods.textDocument_semanticTokens_full
+    --   )
+    -- then
+    --   local ok, semantic_tokens = pcall(require, "vim.lsp.semantic_tokens")
+    --   -- vim.print(semantic_tokens)
+    --   -- if ok then
+    --   --   vim.b.semantic_tokens_enabled = true
+    --   -- end
+    -- end
   end,
 })
 
