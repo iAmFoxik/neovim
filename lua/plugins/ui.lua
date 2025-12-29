@@ -32,8 +32,15 @@ return {
   {
     "iAmFoxik/atomic.nvim",
     branch = "light",
+    -- dev = true,
+    -- dir = "/home/user/Projects/flakes/atomic.nvim",
     lazy = false,
     priority = 1000,
+    opts = {
+      ui = {
+        enabled = false,
+      },
+    },
     config = function()
       vim.cmd("colorscheme atomic")
     end,
