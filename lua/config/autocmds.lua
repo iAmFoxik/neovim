@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       ) and vim.lsp.inlay_hint
     then
       -- vim.lsp.inlay_hint.enable(false, { buffer = event.buf, silent = true })
-      -- vim.lsp.inlay_hint.enable(true, { buffer = event.buf, silent = true })
+      vim.lsp.inlay_hint.enable(true, { buffer = event.buf, silent = true })
 
       map("n", "<leader>th", function()
         vim.lsp.inlay_hint.enable(

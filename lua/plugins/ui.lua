@@ -30,10 +30,27 @@ return {
     -- end,
   },
   {
+    "iAmFoxik/atomcolumn.nvim",
+    -- dev = true,
+    -- dir = "/home/user/projects/flakes/atomcolumn.nvim",
+    opts = {
+      -- sep = "│",
+      -- signcolumn = "yes:1",
+      current_line = true,
+      ft_ignore = {
+        "neo-tree",
+      },
+      bt_ignore = {
+        "nofile",
+        "prompt",
+      },
+    },
+  },
+  {
     "iAmFoxik/atomic.nvim",
     branch = "light",
-    -- dev = true,
-    -- dir = "/home/user/Projects/flakes/atomic.nvim",
+    dev = true,
+    dir = "/home/user/projects/flakes/atomic.nvim",
     lazy = false,
     priority = 1000,
     opts = {

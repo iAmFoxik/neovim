@@ -7,6 +7,9 @@ local function cmd(command)
 end
 
 -- local snacks = require("Snacks")
+-- Tab
+map("n", "gb", cmd("bnext"), "Go to next buffer")
+map("n", "gB", cmd("bprevious"), "Go to previous buffer")
 
 map("t", "<esc>", "<C-\\><C-n>", "Close terminal")
 map("n", ",,", cmd("nohlsearch"), "Disable search")
